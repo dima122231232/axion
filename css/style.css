@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 *,*::after,*::before{margin: 0;padding: 0;box-sizing: border-box;}
 ::-webkit-scrollbar {width: 0;height: 0;}
+a{color: transparent;}
 :root{
     --container-padding:clamp(15px,2.6vw,50px);
 
