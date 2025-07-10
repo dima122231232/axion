@@ -1,0 +1,10 @@
+@media (max-width: 850px) {
+    .header__nav,.background__container{display: none;}
+    .header__logo {height: 35px;}
+    .burger__line {width:45px;}
+    .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
+}
+@media (max-width: 500px) {
+    .promo__video{margin:-3vw 0;left:auto;transform:translateX(0%) rotate(-3deg);right:15px;float: right;z-index: -1;}
+
+}
