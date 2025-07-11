@@ -19,3 +19,49 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
         c.appendChild(s);
     }
 // });
+
+gsap.set(".gmail__underline, .tel__underline", { transformOrigin: "center" });
+
+document.querySelectorAll(".header__link").forEach(link => {
+  const underline = link.querySelector("span");
+
+  link.addEventListener("mouseenter", () => {
+    gsap.to(underline, { scaleX: 0, duration: 0.3 });
+  });
+
+  link.addEventListener("mouseleave", () => {
+    gsap.to(underline, { scaleX: 1, duration: 0.3 });
+  });
+});
+
+window.addEventListener("scroll", () => {
+  const top = document.querySelector(".buba").getBoundingClientRect().top;
+  gsap.to("body, .header", {
+    backgroundColor: top <= 0 ? "#000" : "#111111",
+    duration: 1,
+    overwrite: "auto"
+  });
+});
+
+var anim = CustomEase.create("custom", "M0,0 C.7,0 .3,1 1,1");
+gsap.set(".button-request-fake", { rotate: 5,yPercent:100 });
+
+document.querySelector(".button-request").addEventListener("mouseenter", () => {
+    gsap.to(".button-request",{scale:.9, ease: anim, duration: .4})
+    gsap.timeline()
+        .to(".button-request-original", { rotate: 10, duration: 0.4, ease: anim })
+        .to(".button-request-original", { yPercent: -200, duration: 0.4, ease: anim }, 0.05);
+    gsap.timeline()
+        .to(".button-request-fake", { rotate: 0, duration: 0.4, ease: anim })
+        .to(".button-request-fake", { yPercent: -100, duration: 0.4, ease: anim }, 0.05);
+});
+
+document.querySelector(".button-request").addEventListener("mouseleave", () => {
+    gsap.to(".button-request",{scale:1, ease: anim, duration: .4})
+    gsap.timeline()
+        .to(".button-request-original", { rotate:0, duration: .4,ease:anim})
+        .to(".button-request-original", { yPercent:0, duration: .4,ease:anim },.05);
+    gsap.timeline()
+        .to(".button-request-fake", { rotate:5, duration: .4,ease:anim})
+        .to(".button-request-fake", { yPercent:100, duration: .4,ease:anim },.05);
+});
