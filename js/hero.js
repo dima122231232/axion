@@ -1,4 +1,3 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 // window.addEventListener("load", () => {
     gsap.fromTo(".promo__video",{y:"0vh"},{y:"85vh",rotate:0,height:"100vh",width:"100vw",right:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     // gsap.fromTo(".hero__title-span",{opacity:1},{opacity:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
@@ -19,21 +18,6 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
         c.appendChild(s);
     }
 // });
-
-gsap.set(".gmail__underline, .tel__underline", { transformOrigin: "center" });
-
-document.querySelectorAll(".header__link").forEach(link => {
-  const underline = link.querySelector("span");
-
-  link.addEventListener("mouseenter", () => {
-    gsap.to(underline, { scaleX: 0, duration: 0.3 });
-  });
-
-  link.addEventListener("mouseleave", () => {
-    gsap.to(underline, { scaleX: 1, duration: 0.3 });
-  });
-});
-
 window.addEventListener("scroll", () => {
   const top = document.querySelector(".buba").getBoundingClientRect().top;
   gsap.to("body, .header", {
@@ -43,7 +27,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-var anim = CustomEase.create("custom", "M0,0 C.7,0 .3,1 1,1");
 gsap.set(".button-request-fake", { rotate: 5,yPercent:100 });
 
 document.querySelector(".button-request").addEventListener("mouseenter", () => {
@@ -65,3 +48,18 @@ document.querySelector(".button-request").addEventListener("mouseleave", () => {
         .to(".button-request-fake", { rotate:5, duration: .4,ease:anim})
         .to(".button-request-fake", { yPercent:100, duration: .4,ease:anim },.05);
 });
+
+
+const dots = document.getElementById('dots');
+let count = dots.textContent.length;
+
+function updateDots(target) {
+  if (count === target) {
+    gsap.delayedCall(2.5, () => updateDots(Math.floor(Math.random() * 28) + 3));
+    return;
+  }
+  count += (target > count) ? 1 : -1;
+  gsap.to(dots, { duration: 0.05, textContent: '.'.repeat(count), ease: "none" });
+  gsap.delayedCall(0.05, () => updateDots(target));
+}
+updateDots(Math.floor(Math.random() * 28) + 3);
