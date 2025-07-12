@@ -2,7 +2,7 @@
     if(!isMobile){
     gsap.fromTo(".promo__video",{scale:.3,top:-1*vh -.1*vw ,rotate:-5},{top:.05*vh, scale: 1 ,rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     }else{
-        gsap.fromTo(".promo__video",{scale:.3,top:-1*vh -.25*vw ,rotate:-5},{top:.05*vh, scale: 1 ,rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
+        gsap.fromTo(".promo__video",{scale:.3,top:-1*vh -.2*vh ,rotate:-5},{top:.05*vh, scale: 1 ,rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     } 
     
     // gsap.fromTo(".hero__title-span",{opacity:1},{opacity:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
