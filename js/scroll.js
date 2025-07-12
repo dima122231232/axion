@@ -2,7 +2,7 @@
     wrapper: '.wrapper',
     content: '.content',
     smooth: 1.5,
-    smoothTouch: 1.1, // обязательно от 1 и выше!
+    smoothTouch: .35, // обязательно от 1 и выше!
   normalizeScroll: true, // помогает избежать рывков
   ignoreMobileResize: true
     });

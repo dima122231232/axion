@@ -35,7 +35,6 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 
 html, body {
   touch-action: none; /* отключает двойной тап */
-  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
 }
 /* header----------------------------- */
 .header {
@@ -59,7 +58,7 @@ html, body {
 }
 .header__logo {
     height: var(----header__logo-height);
-    /* opacity:0; */
+    opacity:0;
 }
 .header__nav {
     padding-left:15vw;
