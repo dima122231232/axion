@@ -1,7 +1,9 @@
 const classes = ['ai-section__heading', 'ai-section__heading--human', 'ai-section__heading--ai'];
 
-// gsap.fromTo(".ai-section__heading--human",{y:0},{y:1000,ease:"none",scrollTrigger: {trigger: ".ai-section__content",start: "top top", end:"1000 top",scrub: 0,markers:true}});
+// var b = document.querySelector('.ai-section__content').offsetHeight
 
+// gsap.fromTo(".ai-section__heading--human, .ai-section__heading--ai",{y:0},{y:b-120,ease:"none",scrollTrigger: {trigger: ".ai-section__content",start: "top top", end: `${b-120} top`,scrub: 0,markers:true}});
+if(!isMobile){
 document.querySelectorAll('.ai-section__content').forEach(section => {
   classes.forEach(className => {
     const element = section.querySelector(`.${className}`);
@@ -17,6 +19,7 @@ document.querySelectorAll('.ai-section__content').forEach(section => {
     }
   });
 });
+}
 // document.querySelectorAll('.ai-section__content').forEach(section => {
 //   classes.forEach(className => {
 //     const element = section.querySelector(`.${className}`);

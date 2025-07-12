@@ -30,10 +30,7 @@
     --offset-vw: 13vw;
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
-
 .content,.wrapper ,.ai-section__heading ,.promo__video {will-change: transform;}
-
-
 /* header----------------------------- */
 .header {
     width: 100vw;
@@ -115,11 +112,10 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 
 /* hero------------------------------- */
 .hero {
-    height: 100vh;
+    height: 200vh;
     position: relative;
-    display: flex;
-    align-items: center;
     pointer-events: none;
+    overflow: hidden;
 }
 .promo__video {
     position: absolute;
@@ -251,7 +247,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     line-height:135%;
     font-weight:500;
     letter-spacing: -0.03em;
-    padding-bottom:calc(var(--index)*3);
+    padding:10vh 0 calc(var(--index)*3);
 }
 .word {
   display: inline-block;
@@ -273,18 +269,19 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     border-right: 1px dashed var(--polosa-color);
 }
 .ai-section__heading {
-    position: relative;
+    position: sticky;
+    top: 0;
     padding-top: var(--ai-section__heading-marginTop);
     padding-left:var(--container-padding);
     font-size:var(--ai-section__heading);
     font-weight:500;
     line-height:100%;
     letter-spacing: -0.03em;
-    margin:0 0 clamp(90px,10.5vw,200px);
     background-image: linear-gradient(#000, #000 75%, #00000000);
     padding-bottom: 2em;
 }
 .ai-section__text-group {
+    margin-top:clamp(90px,10.5vw,200px);
     padding-left:var(--container-padding);
     font-size:var(--ai-section__text-group);
     line-height:150%;

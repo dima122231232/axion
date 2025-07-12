@@ -23,3 +23,14 @@ document.querySelectorAll(".header__link").forEach(link => {
 //       prev = s.scroll();
 //     }
 //   });
+
+gsap.to(".header", {
+  y:-100,
+  duration: 0.5,
+  ease: anim,
+  scrollTrigger: {
+    trigger: ".ai-section",
+    start: "-20% top",  
+    toggleActions: "play reverse play reverse"
+  }
+});

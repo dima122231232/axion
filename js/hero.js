@@ -1,6 +1,5 @@
-    if(!isMobile){
-        gsap.fromTo(".promo__video",{scale:.3,rotate:-5,y:"-10vw"},{scale: 1,y:"100vh",rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
-    }else{
+    if(!isMobile){gsap.fromTo(".promo__video",{scale:.3,rotate:-5,y:"-10vw"},{scale: 1,y:"100vh",rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});}
+    else{
         gsap.fromTo(".promo__video",{scale:.3,rotate:-3,y:"-30vw"},{scale: 1,y:"100vh",rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     } 
 window.addEventListener("load", () => {
@@ -23,7 +22,7 @@ window.addEventListener("load", () => {
     }
 // });
 window.addEventListener("scroll", () => {
-  const top = document.querySelector(".hero-plus").getBoundingClientRect().top;
+  const top = document.querySelector(".hero__plus").getBoundingClientRect().bottom;
   gsap.to("body, .header", {
     backgroundColor: top <= 0 ? "#000" : "#111111",
     duration: .5,
