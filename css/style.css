@@ -115,9 +115,11 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 .promo__video {
     position: absolute;
     left:50%;
-    margin:-2vw 0;
-    transform: translateX(-50%) rotate(-5deg);
-    width:clamp(240px,25vw,475px);
+    /* top:calc(-100vh - 10vw); */
+    transform:translateX(-50%) scale(.3);
+    /* width:clamp(240px,25vw,475px); */
+    width: 100vw;
+    height: 100vh;
     z-index:-1;
     object-fit: cover;
 }
@@ -241,6 +243,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     line-height:135%;
     font-weight:500;
     letter-spacing: -0.03em;
+    padding-bottom:calc(var(--index)*3);
 }
 .word {
   display: inline-block;

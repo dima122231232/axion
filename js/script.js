@@ -1,4 +1,8 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+const vh = window.innerHeight;
+const vw = window.innerWidth;
+
 var anim = CustomEase.create("custom", "M0,0 C.7,0 .3,1 1,1");
 
 function animateWords(sel, trig, start = "top center") {
