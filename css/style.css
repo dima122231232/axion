@@ -33,9 +33,6 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 
 .content ,.ai-section__heading ,.promo__video {will-change: transform;}
 
-html, body {
-  touch-action: none; /* отключает двойной тап */
-}
 /* header----------------------------- */
 .header {
     width: 100vw;
@@ -59,7 +56,7 @@ html, body {
 }
 .header__logo {
     height: var(----header__logo-height);
-    /* opacity:0; */
+    opacity:0;
 }
 .header__nav {
     padding-left:15vw;
