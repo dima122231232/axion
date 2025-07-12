@@ -88,6 +88,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     flex-direction: column;
     gap: 10px;
     float: right;
+    display: none;
 }
 .burger__line {
     height: 1px;
