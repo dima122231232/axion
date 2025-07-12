@@ -9,7 +9,8 @@ document.querySelectorAll('.ai-section__content').forEach(section => {
         start: "top top",
         end: () => `bottom-=${offsetPx} top`,
         pin: element,
-        pinSpacing: false
+        pinSpacing: false,
+        scrub: true // это делает scroll-trigger поведение "мягким"
       });
     }
   });
