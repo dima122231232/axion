@@ -7,14 +7,12 @@
 ::-webkit-scrollbar {width: 0;height: 0;}
 :root{  
     --container-padding:clamp(15px,2.6vw,50px);
-    --header__logo:45px;
-    --header-padding:35px;
 
     --index:calc(1vw + 1vh);
     --nav-text:18px;
     --hero__description-text:clamp(12px,1.25vw,24px);
     --button-request-text:clamp(12px,1.2vw,22px);
-    --ai-section__heading:clamp(13px,2.18vw,42px);
+    --ai-section__heading:clamp(1px,2.18vw,42px);
     --ai-section__text-group:clamp(8px,1.125vw,18px);
     --ai-section__title:clamp(20px,3.125vw,60px);
 
@@ -27,7 +25,6 @@
     --ai-section__heading-marginTop:clamp(70px,15vh,160px);
 
     --offset-vw: 13vw;
-    --header-height:calc(var(--header__logo) + var(--header-padding))
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
 
@@ -54,7 +51,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     justify-content: space-between;
 }
 .header__logo {
-    height: var(--header__logo);
+    height: 45px;
 }
 .header__nav {
     padding-left:15vw;
@@ -238,7 +235,6 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     line-height:135%;
     font-weight:500;
     letter-spacing: -0.03em;
-    padding-bottom:calc(var(--index)*5);
 }
 .word {
   display: inline-block;
@@ -246,7 +242,8 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
   transform: translate(-5px , 10px);
 }
 .ai-section__content {
-    padding-top:var(--header-height);
+    margin-top: 8vw;
+    padding-top:2.5vw;
     display: flex;
     justify-content: space-between;
 }
@@ -259,14 +256,14 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     border-right: 1px dashed var(--polosa-color);
 }
 .ai-section__heading {
-    padding-top: 160px;
+    padding-top: var(--ai-section__heading-marginTop);
     position: relative;
     padding-left:var(--container-padding);
     font-size:var(--ai-section__heading);
     font-weight:500;
     line-height:100%;
     letter-spacing: -0.03em;
-    margin:0 0 200px;
+    margin:0 0 clamp(90px,10.5vw,200px);
     background-image: linear-gradient(#000, #000 75%, #00000000);
     padding-bottom: 2em;
 }

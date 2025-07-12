@@ -1,38 +1,38 @@
 const classes = ['ai-section__heading', 'ai-section__heading--human', 'ai-section__heading--ai'];
 
-// document.querySelectorAll('.ai-section__content').forEach(section => {
-//   classes.forEach(className => {
-//     const element = section.querySelector(`.${className}`);
-//     if (element) {
-//       ScrollTrigger.create({
-//         trigger: section,
-//         start: "top top",
-//         end: () => `bottom-=${offsetPx} top`,
-//         pin: element,
-//         pinSpacing: false,
-//         scrub: true
-//       });
-//     }
-//   });
-// });
 document.querySelectorAll('.ai-section__content').forEach(section => {
   classes.forEach(className => {
     const element = section.querySelector(`.${className}`);
-    
     if (element) {
-      gsap.to(element, {
-        y: 550, 
-        ease:"none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end:"550 top",
-          scrub: true
-        }
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: () => `bottom-=${offsetPx} top`,
+        pin: element,
+        pinSpacing: false,
+        scrub: true
       });
     }
   });
 });
+// document.querySelectorAll('.ai-section__content').forEach(section => {
+//   classes.forEach(className => {
+//     const element = section.querySelector(`.${className}`);
+    
+//     if (element) {
+//       gsap.to(element, {
+//         y: 550, 
+//         ease:"none",
+//         scrollTrigger: {
+//           trigger: section,
+//           start: "top top",
+//           end:"550 top",
+//           scrub: true
+//         }
+//       });
+//     }
+//   });
+// });
 
 
 let obj = { val: 0 };
