@@ -1,6 +1,6 @@
 @media (max-width: 850px) {
     .header__nav,.background__container{display: none;}
-    .header__logo {height: 35px;}
+    .header__logo {height:calc(var(--header__logo)*.7)}
     .burger__line {width:45px;}
     .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
 }
@@ -9,7 +9,7 @@
     .ai-section__column{width:50%;}
     .ai-section__column--human{border-left: none;}
     .ai-section__heading--human,.ai-section__text-group--human{padding-left:0;padding-right:var(--container-padding);}
-    .ai-section__heading{ padding-bottom: 3em;}
+    .ai-section__heading{ padding-bottom: 3em;margin-bottom:90px;padding-top:70px;}
     .ai-section__heading {font-size:calc(var(--ai-section__heading)*1.5);}
     .ai-section__title{font-size: calc(var(--ai-section__title)*1.5);}
     .ai-section__text-group{font-size: calc(var(--ai-section__text-group)*1.5);}

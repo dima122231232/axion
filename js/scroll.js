@@ -1,11 +1,11 @@
-
+if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
     ScrollSmoother.create({
         wrapper: '.wrapper',
         content: '.content',
         smooth: 2,
         smoothTouch: 0.2
     });
-if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
+    
     document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;
 }
 
