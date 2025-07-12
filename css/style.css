@@ -59,7 +59,7 @@ html, body {
 }
 .header__logo {
     height: var(----header__logo-height);
-    opacity:0;
+    /* opacity:0; */
 }
 .header__nav {
     padding-left:15vw;
