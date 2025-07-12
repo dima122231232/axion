@@ -12,3 +12,14 @@ document.querySelectorAll(".header__link").forEach(link => {
     gsap.to(underline, { scaleX: 1, duration: 0.3 });
   });
 });
+
+//  let prev = 0, header = document.querySelector(".header");
+//   ScrollTrigger.create({
+//     onUpdate: s => {
+//       gsap.to(header, {
+//         yPercent: s.scroll() < prev ? 0 : -100,
+//         duration: 0.3
+//       });
+//       prev = s.scroll();
+//     }
+//   });

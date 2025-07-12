@@ -19,10 +19,10 @@
     }
 // });
 window.addEventListener("scroll", () => {
-  const top = document.querySelector(".buba").getBoundingClientRect().top;
+  const top = document.querySelector(".hero-plus").getBoundingClientRect().top;
   gsap.to("body, .header", {
     backgroundColor: top <= 0 ? "#000" : "#111111",
-    duration: 1,
+    duration: .5,
     overwrite: "auto"
   });
 });
