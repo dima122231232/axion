@@ -5,7 +5,7 @@ if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
     content: '.content',
     smooth: 1.5,
     effects: true, 
-    // smoothTouch: 0.1
+    smoothTouch: 0.1
     });
     
 // }
