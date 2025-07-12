@@ -25,3 +25,5 @@ function animateWords(sel, trig, start = "top center") {
 const offsetVw = getComputedStyle(document.documentElement).getPropertyValue('--offset-vw').trim();
 function vwToPx(vw) {return parseFloat(vw) * window.innerWidth / 100;}
 const offsetPx = vwToPx(offsetVw);
+
+const isMobile = window.innerWidth < 769;

@@ -16,8 +16,8 @@
     .ai-section__text-group{font-size: calc(var(--ai-section__text-group)*1.5);}
 }
 @media (max-width: 530px) {
-    .hero-plus{height:105vh!important;}
-    .promo__video{margin:-10vw 0;left:60%;z-index: -1; width:200vw;}
+    .hero-plus{height:110vh!important;}
+    .promo__video{left:60%;z-index: -1; width:200vw;}
     .ai-section__heading {font-size:calc(var(--ai-section__heading)*1.2);}
     .ai-section__title{font-size: calc(var(--ai-section__title)*1.2);}
     .ai-section__text-group{font-size: calc(var(--ai-section__text-group)*1.2);}
