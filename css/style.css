@@ -12,7 +12,7 @@
     --nav-text:18px;
     --hero__description-text:clamp(12px,1.25vw,24px);
     --button-request-text:clamp(12px,1.2vw,22px);
-    --ai-section__heading:clamp(1px,2.18vw,42px);
+    --ai-section__heading:clamp(13px,2.18vw,42px);
     --ai-section__text-group:clamp(8px,1.125vw,18px);
     --ai-section__title:clamp(20px,3.125vw,60px);
 
