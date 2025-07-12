@@ -1,5 +1,7 @@
 const classes = ['ai-section__heading', 'ai-section__heading--human', 'ai-section__heading--ai'];
 
+// gsap.fromTo(".ai-section__heading--human",{y:0},{y:1000,ease:"none",scrollTrigger: {trigger: ".ai-section__content",start: "top top", end:"1000 top",scrub: 0,markers:true}});
+
 document.querySelectorAll('.ai-section__content').forEach(section => {
   classes.forEach(className => {
     const element = section.querySelector(`.${className}`);

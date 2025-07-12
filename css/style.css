@@ -31,7 +31,7 @@
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
 
-.content {will-change: transform;}
+.content ,.ai-section__heading ,.promo__video {will-change: transform;}
 
 html, body {
   touch-action: none; /* отключает двойной тап */
@@ -44,6 +44,7 @@ html, body {
     background-color:var(--black-background-color);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+
 }
 .header__container {
     padding: var(--header__container-padding) var(--container-padding);
@@ -58,7 +59,7 @@ html, body {
 }
 .header__logo {
     height: var(----header__logo-height);
-    opacity:0;
+    /* opacity:0; */
 }
 .header__nav {
     padding-left:15vw;
@@ -254,6 +255,7 @@ html, body {
     justify-content: space-between;
 }
 .ai-section__column {
+    position: relative;
     width: 33%;
 }
 
@@ -262,8 +264,8 @@ html, body {
     border-right: 1px dashed var(--polosa-color);
 }
 .ai-section__heading {
-    padding-top: var(--ai-section__heading-marginTop);
     position: relative;
+    padding-top: var(--ai-section__heading-marginTop);
     padding-left:var(--container-padding);
     font-size:var(--ai-section__heading);
     font-weight:500;

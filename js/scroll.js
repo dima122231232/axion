@@ -1,16 +1,21 @@
-   const smoother = ScrollSmoother.create({
+if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
+    // document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;
+    const smoother = ScrollSmoother.create({
     wrapper: '.wrapper',
     content: '.content',
     smooth: 1.5,
-    smoothTouch: .35, // обязательно от 1 и выше!
-  normalizeScroll: true, // помогает избежать рывков
-  ignoreMobileResize: true
     });
-
-// if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
-//     document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;
-// }
-
+    
+}
+else{
+    const smoother = ScrollSmoother.create({
+    wrapper: '.wrapper',
+    content: '.content',
+    smoothTouch: .2,
+    normalizeScroll: true,
+    ignoreMobileResize: true
+    });
+}
 
 
 
