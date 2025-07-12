@@ -7,6 +7,8 @@
 ::-webkit-scrollbar {width: 0;height: 0;}
 :root{  
     --container-padding:clamp(15px,2.6vw,50px);
+    --header__container-padding:35px;
+    --header__logo-height:45px;
 
     --index:calc(1vw + 1vh);
     --nav-text:18px;
@@ -40,7 +42,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     backdrop-filter: blur(5px);
 }
 .header__container {
-    padding: 35px var(--container-padding);
+    padding: var(--header__container-padding) var(--container-padding);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,7 +53,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     justify-content: space-between;
 }
 .header__logo {
-    height: 45px;
+    height: var(----header__logo-height);
 }
 .header__nav {
     padding-left:15vw;

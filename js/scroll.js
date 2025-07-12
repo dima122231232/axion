@@ -2,12 +2,12 @@
     wrapper: '.wrapper',
     content: '.content',
     smooth: 1.5,
-    smoothTouch: 1.5
+    smoothTouch: .2
     });
 
-if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
-    document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;
-}
+// if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
+//     document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;
+// }
 
 
 

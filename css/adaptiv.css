@@ -1,6 +1,7 @@
 @media (max-width: 850px) {
     .header__nav,.background__container{display: none;}
-    .header__logo {height: 35px;}
+    .header__logo {height:calc(var(----header__logo-height)*.8)}
+    .header__container {padding: calc(var(--header__container-padding)*.5) var(--container-padding)}
     .burger__line {width:45px;}
     .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
 }
