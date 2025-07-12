@@ -1,10 +1,9 @@
-// window.addEventListener("load", () => {
     if(!isMobile){
         gsap.fromTo(".promo__video",{scale:.3,rotate:-5,y:"-10vw"},{scale: 1,y:"100vh",rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     }else{
         gsap.fromTo(".promo__video",{scale:.3,rotate:-3,y:"-30vw"},{scale: 1,y:"100vh",rotate:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     } 
-    
+window.addEventListener("load", () => {
     // gsap.fromTo(".hero__title-span",{opacity:1},{opacity:0,scrollTrigger: {trigger: ".hero",start: "top top",end: "center top",scrub: true}});
     // gsap.to(".promo__video",{y:"100vh"});
     const c = document.getElementById('background__container');
@@ -68,3 +67,4 @@ function updateDots(target) {
   gsap.delayedCall(0.05, () => updateDots(target));
 }
 updateDots(Math.floor(Math.random() * 28) + 3);
+});
