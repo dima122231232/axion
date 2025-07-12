@@ -34,9 +34,6 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 .content {will-change: transform;}
 
 html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
   touch-action: none; /* отключает двойной тап */
   -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
 }
