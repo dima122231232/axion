@@ -31,7 +31,7 @@
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
 
-.content ,.ai-section__heading ,.promo__video {will-change: transform;}
+.content,.wrapper ,.ai-section__heading ,.promo__video {will-change: transform;}
 
 
 /* header----------------------------- */
