@@ -55,7 +55,6 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 .header__logo {
     height:var(--header__logo-height);
     width:var(--header__logo-height);
-    opacity: 0;
 }
 .header__logo path {
   transition: fill 0.5s, stroke 0.5s;
