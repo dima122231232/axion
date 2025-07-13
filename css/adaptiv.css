@@ -14,7 +14,7 @@
     .ai-section__heading-title {font-size:calc(var(--ai-section__heading)*1.5);padding-right:calc(var(--container-padding) / 2);}
     .ai-section__title{font-size: calc(var(--ai-section__title)*1.5);}
     .ai-section__text-group{font-size: calc(var(--ai-section__text-group)*1.5);margin-top: 20px;padding-bottom: 4vh;}
-    .ai-section__content{padding-top:calc(var(--header__logo-height)*2);}
+    /* .ai-section__content{padding-top:calc(var(--header__logo-height)*1.2);} */
     .ai-section__title{padding-top: 4vh;} 
 }
 @media (max-width: 530px) {

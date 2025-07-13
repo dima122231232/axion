@@ -291,7 +291,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     margin-top:clamp(90px,10.5vw,200px);
     padding-left:var(--container-padding);
     font-size:var(--ai-section__text-group);
-    line-height:150%;
+    line-height:200%;
     padding-bottom:4vw;
 }
 .ai-section__visual{
