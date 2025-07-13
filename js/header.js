@@ -30,7 +30,7 @@ gsap.to(".header", {
   ease: anim,
   scrollTrigger: {
     trigger: ".ai-section",
-    start: "-20% top",  
+    start: "-50% top",  
     toggleActions: "play reverse play reverse"
   }
 });
