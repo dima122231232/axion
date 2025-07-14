@@ -45,7 +45,7 @@ else{
     scrollTrigger: {
     trigger: ".work-steps",
     start: "top top",     // когда элемент входит снизу
-    end: () => `+=${document.querySelector(".work-steps").offsetHeight}`,
+    end: () => `${1 * vh} top`,
     scrub: true,             // плавная анимация при скролл
   }
 });
