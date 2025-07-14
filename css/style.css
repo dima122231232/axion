@@ -329,6 +329,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
 
 .work-steps {
     height: 100vh;
+    min-height: 100vh;
 }
 .work-steps__block {
     height:75vh;

@@ -1,7 +1,7 @@
 gsap.set('.work-steps__column--left .img-wrapper', {rotateY: 180,transformOrigin: 'center center'});
 if(!isMobile){gsap.set('.work-steps__item', {y:.3*vh});}else{gsap.set('.work-steps__item', {y:.6*vh})}
 //  gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end:5*vh,pin: true,pinSpacing: true,scrub: 2,anticipatePin: 1}});
-gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,pinSpacing: true,scrub: 2,anticipatePin: 1}});
+window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,pinSpacing: true,scrub: 2,anticipatePin: 1}}); ScrollTrigger.refresh();});
 const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);
     });
