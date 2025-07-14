@@ -1,7 +1,7 @@
 gsap.set('.work-steps__column--left .img-wrapper', {rotateY: 180,transformOrigin: 'center center'});
 if(!isMobile){gsap.set('.work-steps__item', {y:.3*vh});}else{gsap.set('.work-steps__item', {y:.6*vh})}
 //  gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end:5*vh,pin: true,pinSpacing: true,scrub: 2,anticipatePin: 1}});
-gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
+// gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
 const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);
     });
@@ -36,21 +36,21 @@ if(!isMobile){
         enterTween?.isActive() ? enterTween.eventCallback("onComplete", playLeave) : playLeave();
     });
     });
-    // gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
+    gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
 
     gsap.from(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0,x:-110,duration: 1,ease: "power2.out",scrollTrigger: {trigger: ".work-steps",start: "top 30%",  once: true}});
 }
 else{ 
-//     gsap.fromTo(".work-steps",{}, {
-//     yPercent: 100,
-//     ease:"none",
-//     scrollTrigger: {
-//     trigger: ".work-steps",
-//     start: "top top",   
-//     end:"bottom top",
-//     scrub: true,  
-//   }
-// });
+    gsap.fromTo(".work-steps",{}, {
+    yPercent: 100,
+    ease:"none",
+    scrollTrigger: {
+    trigger: ".work-steps",
+    start: "top top",   
+    end:"bottom top",
+    scrub: true,  
+  }
+});
 // const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
 //     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);});
     gsap.from(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0,x:-110,duration: 1,ease: "power2.out",scrollTrigger: {trigger: ".work-steps",start: "top 60%",  once: true}});
