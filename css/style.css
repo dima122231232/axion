@@ -124,7 +124,7 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     position: absolute;
     top:50%;
     left: 50%;
-    transform:translate(-50% , -50%) scale(.3);
+    transform:translate(-50% , -50%) scale(.3) translateZ(0);
     /* width:clamp(240px,25vw,475px); */
     width: 100vw;
     height: 100vh;
