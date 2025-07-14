@@ -40,14 +40,13 @@ if(!isMobile){
 }
 else{ 
     gsap.fromTo(".work-steps",{}, {
-    y: "100vh",
+    y: 1*vh,
     ease:"none",
     scrollTrigger: {
     trigger: ".work-steps",
     start: "top top",     // когда элемент входит снизу
     end: () => `+=${document.querySelector(".work-steps").offsetHeight}`,
-    scrub: true,             // плавная анимация при скролле
-    markers: true
+    scrub: true,             // плавная анимация при скролл
   }
 });
 const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
