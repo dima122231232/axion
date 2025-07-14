@@ -38,7 +38,7 @@ if(!isMobile){
     });
     // gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
 
-    gsap.from(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0,x:-110,duration: 1,ease: "power2.out",scrollTrigger: {trigger: ".work-steps",start: "top 30%",  once: true}});
+   gsap.fromTo(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0, duration: 1, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 30%", toggleActions: "play reverse play reverse"}});
 }
 else{ 
 //     gsap.fromTo(".work-steps",{}, {
@@ -53,11 +53,12 @@ else{
 // });
 // const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
 //     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);});
-    gsap.from(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0,x:-110,duration: 1,ease: "power2.out",scrollTrigger: {trigger: ".work-steps",start: "top 60%",  once: true}});
+    gsap.fromTo(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0, duration: 1, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 60%", toggleActions: "play reverse play reverse"}});
+
 }
 
 
 
 
-animateWords(".work-steps__title", ".work-steps", "top 50%");
+animateWords(".work-steps__title", ".work-steps", "top 30%");
 animateWords(".work-steps__text", ".work-steps", "top 30%");

@@ -11,16 +11,20 @@ function animateWords(sel, trig, start = "top center") {
   t.innerHTML = t.innerHTML.split("<br>").map(
     l => l.split(" ").map(w => `<span class="word">${w}</span>`).join(" ")
   ).join("<br>");
-  gsap.to(t.querySelectorAll(".word"), {
-    scrollTrigger: { trigger: trig, start, once: true },
+gsap.to(t.querySelectorAll(".word"), {
+        scrollTrigger: {
+        trigger: trig,
+        start,
+        toggleActions: "play reverse play reverse",
+        },
     opacity: 1,
-    duration: .5,
-    y:0,
-    x:0,
+    duration: 0.5,
+    y: 0,
+    x: 0,
     stagger: 0.025,
     ease: anim
-  });
-}
+    });
+    }
 
 const offsetVw = getComputedStyle(document.documentElement).getPropertyValue('--offset-vw').trim();
 function vwToPx(vw) {return parseFloat(vw) * window.innerWidth / 100;}
