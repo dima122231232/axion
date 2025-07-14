@@ -33,7 +33,7 @@
     --offset-vw: 13vw;
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
-.content,.wrapper ,.ai-section__heading ,.promo__video,.work-steps {will-change: transform;}
+.content,.wrapper ,.ai-section__heading ,.promo__video,.work-steps {will-change: transform; backface-visibility: hidden;}
 /* header----------------------------- */
 .header {
     width: 100vw;

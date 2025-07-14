@@ -47,11 +47,11 @@ else{
     start: "top top",     // когда элемент входит снизу
     end:"bottom top",
     scrub: true,             // плавная анимация при скролл
-    markers:true
+    // markers:true
   }
 });
-const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
-    gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);});
+// const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
+//     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);});
     gsap.from(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0,x:-110,duration: 1,ease: "power2.out",scrollTrigger: {trigger: ".work-steps",start: "top 60%",  once: true}});
 }
 
