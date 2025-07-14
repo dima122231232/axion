@@ -33,7 +33,7 @@
     --offset-vw: 13vw;
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
-.ai-section__heading ,.promo__video,.work-steps,.work-steps__item {will-change: transform; backface-visibility: hidden;}
+.ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo{will-change: transform; backface-visibility: hidden;}
 /* header----------------------------- */
 .header {
     width: 100vw;
@@ -412,4 +412,67 @@ body{background-color: var(--black-background-color);color: #fff;font-family: "M
     top:1vw;
     right:1vw;
     font-weight:500;
+}
+
+
+
+
+
+
+/* team -------------------- */
+.team {
+    height:100vh;
+}
+.team__title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:20vh 0 5vh;
+}
+.team__square {
+    width:8px;
+    height: 8px;
+    background-color: #fff;
+    margin-right:12px;
+    transform: translateY(25%);
+}
+.team__title {
+    font-size: clamp(22px ,1.45vw, 28px);
+    font-weight: 500;
+}
+.team__list {
+    display: flex;
+    justify-content: space-between;
+    padding:0 var(--container-padding);
+    position: relative;
+}
+.team__member {
+    width:calc(33.3% - calc(var(--container-padding) / 1.5));
+}
+.team__photo-block {
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.team__photo {
+    position: absolute;
+     height: 140%;
+       width: 100%;
+    object-fit: cover;
+     filter: grayscale(0%) blur(0px);
+     
+}
+/* .team__photo:hover{
+    filter: grayscale(0%);
+} */
+.team__name {
+    margin-top: var(--container-padding);
+    font-size: clamp(18px,1.6vw,32px);
+    font-weight:500;
+}
+.team__position {
+    font-size: clamp(12px,1.15vw,22px);
+    font-weight:400;
 }

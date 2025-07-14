@@ -7,35 +7,35 @@ const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top
     });
 
 if(!isMobile){
-    document.querySelectorAll('.work-steps__column--left .img-wrapper, .work-steps__column--right .img-wrapper').forEach(wrapper => {
-    const img = wrapper.querySelector('img');
-    let enterTween, leaveTween;
+    // document.querySelectorAll('.work-steps__column--left .img-wrapper, .work-steps__column--right .img-wrapper').forEach(wrapper => {
+    // const img = wrapper.querySelector('img');
+    // let enterTween, leaveTween;
 
-    wrapper.addEventListener('mouseenter', () => {
-        leaveTween?.kill();
-        enterTween = gsap.to(img, {
-        duration: 0.3,
-        scale: 1,
-        rotateY: -50,
-        transformOrigin: 'left center',
-        ease: "power2.inOut",
-        overwrite: true
-        });
-    });
+    // wrapper.addEventListener('mouseenter', () => {
+    //     leaveTween?.kill();
+    //     enterTween = gsap.to(img, {
+    //     duration: 0.3,
+    //     scale: 1,
+    //     rotateY: -50,
+    //     transformOrigin: 'left center',
+    //     ease: "power2.inOut",
+    //     overwrite: true
+    //     });
+    // });
 
-    wrapper.addEventListener('mouseleave', () => {
-        const playLeave = () => {
-        leaveTween = gsap.to(img, {
-            duration: 0.5,
-            scale: 1,
-            rotateY: 0,
-            ease: "power2.inOut",
-            overwrite: true
-        });
-        };
-        enterTween?.isActive() ? enterTween.eventCallback("onComplete", playLeave) : playLeave();
-    });
-    });
+    // wrapper.addEventListener('mouseleave', () => {
+    //     const playLeave = () => {
+    //     leaveTween = gsap.to(img, {
+    //         duration: 0.5,
+    //         scale: 1,
+    //         rotateY: 0,
+    //         ease: "power2.inOut",
+    //         overwrite: true
+    //     });
+    //     };
+    //     enterTween?.isActive() ? enterTween.eventCallback("onComplete", playLeave) : playLeave();
+    // });
+    // });
     // gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
 
    gsap.fromTo(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0, duration: 1, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 30%", toggleActions: "play reverse play reverse"}});
