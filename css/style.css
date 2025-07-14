@@ -33,11 +33,13 @@
     --offset-vw: 13vw;
 }
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
-body {
-  -webkit-overflow-scrolling: touch;
-  overflow-y: scroll; /* обязательно указать, иначе не будет эффекта */
+html, body {
+  -webkit-overflow-scrolling: touch; /* для iOS плавного скролла */
+  scroll-behavior: smooth;            /* для плавных переходов */
+  touch-action: manipulation;         /* уменьшает задержку на касаниях */
+  overscroll-behavior: none;          /* отключает bounce-эффект */
 }
-.ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo{will-change: transform;will-change: scroll-position;}
+.ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo{will-change: transform;will-change: scroll-position;transform: translate3d(0, 0, 0);}
 /* header----------------------------- */
 .header {
     width: 100vw;
