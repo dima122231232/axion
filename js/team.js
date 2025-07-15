@@ -30,4 +30,4 @@ gsap.fromTo(".team__square",{opacity:0}, {
         opacity:1,
         delay:.4
 })
-animateWords(".team__title", ".team", "top 50%");
+// animateWords(".team__title", ".team", "top 50%");

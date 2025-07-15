@@ -48,6 +48,9 @@
     .work-steps__item{height: 25vh;width: 50%;}
     .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * 1.4);}
     .work-steps__item-text {font-size: calc(var(--work-steps__item-text) * 1.4);}
+
+    .team {height:calc(100vh - 200px);transform: translateY(-200px);}
+
 }
 @media (max-width: 700px) {
     .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * 1.1);}
