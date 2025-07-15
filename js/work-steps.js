@@ -9,7 +9,7 @@ if(!isMobile){window.addEventListener('load', () => {gsap.to(".work-steps", {scr
 }else{
     window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `bottom+=${.5*vh} top`,pin: true,pinSpacing: true,scrub: 1.2,anticipatePin: 1}}); ScrollTrigger.refresh();});
     gsap.fromTo(".work-steps__item",{opacity:0,filter: "grayscale(100%) blur(50px)"}, {y:0,filter: "grayscale(0%) blur(0px)",opacity:1,duration: 0.4,stagger: 0.1,scrollTrigger: {trigger: ".work-steps",start: "top top",toggleActions: "play none none reverse"}});
-    gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(5px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top -50%",end: () => `bottom+=${1*vh} top`,scrub: true}});
+    gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(3px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top -50%",end: () => `bottom+=${1*vh} top`,scrub: true}});
 }
 if(!isMobile){
     // document.querySelectorAll('.work-steps__column--left .img-wrapper, .work-steps__column--right .img-wrapper').forEach(wrapper => {
