@@ -43,8 +43,8 @@
      :root{--osnova__title-h4:3.5em;}
     .work-steps__image{width: 100%;border-top:1px solid var(--polosa-color);border-bottom:1px solid var(--polosa-color);padding: 0;}
     .work-steps__block{display: block;height: auto;}
-    .work-steps__title-wrapper {text-align: start;padding:5.5vh 0 5.5vh var(--container-padding);width: 100%;}
-    .work-steps__content{flex-wrap: wrap;}
+    .work-steps__title-wrapper {text-align: start;padding:5.5vh 0 5.5vh var(--container-padding);width: 100%;height: 25vh;}
+    .work-steps__content{flex-wrap: wrap;height: 50vh;}
     .work-steps__item{height: 25vh;width: 50%;}
     .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * 1.4);}
     .work-steps__item-text {font-size: calc(var(--work-steps__item-text) * 1.4);}

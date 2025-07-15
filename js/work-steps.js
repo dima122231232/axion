@@ -1,30 +1,15 @@
 gsap.set('.work-steps__column--left .img-wrapper', {rotateY: 180,transformOrigin: 'center center'});
 if(!isMobile){gsap.set('.work-steps__item', {y:.3*vh});}else{gsap.set('.work-steps__item', {y:.6*vh})}
 //  gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end:5*vh,pin: true,pinSpacing: true,scrub: 2,anticipatePin: 1}});
-window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,pinSpacing: true,scrub: 1.2,anticipatePin: 1}}); ScrollTrigger.refresh();});
-// const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: 1.2,}});
-//     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.fromTo(item, {y:.6*vh},{y: 0 * vh,ease: "power2.out"}, i * .2);
-//     });
-window.addEventListener("resize", () => vh = window.innerHeight);
-
-gsap.utils.toArray(".work-steps__item").forEach((item, i) => {
-  gsap.to(item,
-    {
-      y: 0,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: item,
-        start: () => `top bottom-=${i * 0.2 * vh}`,
-        end: () => `bottom top+=${vh * 0.1}`,
-        scrub: 0.6,
-        invalidateOnRefresh: true
-      }
-    }
-  );
-});
-
-
-gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(10px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top top",end: () => `bottom+=${1*vh} top`,scrub: true}});
+if(!isMobile){window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,pinSpacing: true,scrub: 1.2,anticipatePin: 1}}); ScrollTrigger.refresh();});
+    const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: 1.2,}});
+        gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.fromTo(item, {y:.6*vh},{y: 0 * vh,ease: "power2.out"}, i * .2);
+    });
+    gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(10px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top top",end: () => `bottom+=${1*vh} top`,scrub: true}});
+}else{
+    window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `bottom+=${.5*vh} top`,pin: true,pinSpacing: true,scrub: 1.2,anticipatePin: 1}}); ScrollTrigger.refresh();});
+    gsap.fromTo(".work-steps__item",{opacity:0,filter: "grayscale(100%) blur(50px)"}, {y:0,filter: "grayscale(0%) blur(0px)",opacity:1,duration: 0.4,stagger: 0.1,scrollTrigger: {trigger: ".work-steps",start: "top top",toggleActions: "play reverse play reverse"}});
+}
 if(!isMobile){
     // document.querySelectorAll('.work-steps__column--left .img-wrapper, .work-steps__column--right .img-wrapper').forEach(wrapper => {
     // const img = wrapper.querySelector('img');
