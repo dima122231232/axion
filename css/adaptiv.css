@@ -30,6 +30,7 @@
 }
 
 @media (max-width: 850px) {
+    .about{display: block;}
     :root{--osnova__title-h4:2.5em;}
     .img-wrapper{height:30vh;}
     .header__nav,.background__container{display: none;}
@@ -39,6 +40,7 @@
     .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
 }
 @media (max-width: 768px) {
+    .about-mobile{display: block;}
     .ai-section__column--visual{display: none;}
     .ai-section__column{width:50%;}
     .ai-section__column--human{border-left: none;}
@@ -84,6 +86,7 @@
 
 }
 @media (max-width: 430px) {
+    .h4__title{font-size:48px;}
     .ai-section__heading-title {font-size:var(--ai-section__heading);}
     .ai-section__title{font-size:var(--ai-section__title);}
     .ai-section__text-group{font-size:var(--ai-section__text-group);}

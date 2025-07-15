@@ -538,8 +538,7 @@ body {
     height: 35vh;
 }
 
-.about-mobile {
-}
+.about-mobile{display: none;}
 .about-mobile__section {
 }
 .about-mobile__block {
