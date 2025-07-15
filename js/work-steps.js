@@ -8,7 +8,8 @@ if(!isMobile){window.addEventListener('load', () => {gsap.to(".work-steps", {scr
     gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(10px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top top",end: () => `bottom+=${1*vh} top`,scrub: true}});
 }else{
     window.addEventListener('load', () => {gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `bottom+=${.5*vh} top`,pin: true,pinSpacing: true,scrub: 1.2,anticipatePin: 1}}); ScrollTrigger.refresh();});
-    gsap.fromTo(".work-steps__item",{opacity:0,filter: "grayscale(100%) blur(50px)"}, {y:0,filter: "grayscale(0%) blur(0px)",opacity:1,duration: 0.4,stagger: 0.1,scrollTrigger: {trigger: ".work-steps",start: "top top",toggleActions: "play reverse play reverse"}});
+    gsap.fromTo(".work-steps__item",{opacity:0,filter: "grayscale(100%) blur(50px)"}, {y:0,filter: "grayscale(0%) blur(0px)",opacity:1,duration: 0.4,stagger: 0.1,scrollTrigger: {trigger: ".work-steps",start: "top top",toggleActions: "play none none none", once: true}});
+    gsap.to(".work-steps__content", {filter: "grayscale(100%) blur(5px)",ease: "none",scrollTrigger: {trigger: ".work-steps__item",start: "top -50%",end: () => `bottom+=${1*vh} top`,scrub: true}});
 }
 if(!isMobile){
     // document.querySelectorAll('.work-steps__column--left .img-wrapper, .work-steps__column--right .img-wrapper').forEach(wrapper => {
@@ -42,7 +43,8 @@ if(!isMobile){
     // });
     // gsap.to(".work-steps", {scrollTrigger: {trigger: ".work-steps",start: "top top",end: () => `${document.querySelector(".work-steps").offsetHeight}px top`,pin: true,scrub: false,}});
 
-   gsap.fromTo(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0, duration: 1, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 30%", toggleActions: "play reverse play reverse"}});
+   gsap.fromTo(".work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0,stagger: { each: 0.1, from: "end" }, duration: .5, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 30%", toggleActions: "play reverse play reverse"}});
+      gsap.fromTo(".work-steps__column--right .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0,stagger:0.1, duration: .5, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 30%", toggleActions: "play reverse play reverse"}});
 }
 else{ 
 //     gsap.fromTo(".work-steps",{}, {
@@ -57,7 +59,9 @@ else{
 // });
 // const tl = gsap.timeline({scrollTrigger: {trigger: ".work-steps",start: "top top",end: `bottom+=${0.15 * vh} top`,scrub: true,}});
 //     gsap.utils.toArray(".work-steps__item").forEach((item, i) => {tl.to(item, {y: 0 * vh,ease: "power2.out"}, i * .2);});
-    gsap.fromTo(".work-steps__column--right .img-wrapper img, .work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0, duration: 1, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 60%", toggleActions: "play reverse play reverse"}});
+      gsap.fromTo(".work-steps__column--left .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0,stagger: { each: 0.1, from: "end" }, duration: .5, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 60%", toggleActions: "play reverse play reverse"}});
+      gsap.fromTo(".work-steps__column--right .img-wrapper img", {opacity: 0, x: -110}, {opacity: 1, x: 0,stagger:0.1, duration: .5, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 60%", toggleActions: "play reverse play reverse"}});
+      gsap.fromTo(".work-steps__image",{border:"none"},{border:"1px solid rgba(255,255,255,.1)",delay:.5,duration: .5, ease: "power2.out", scrollTrigger: {trigger: ".work-steps", start: "top 60%", toggleActions: "play reverse play reverse"}});
 
 }
 

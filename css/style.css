@@ -3,7 +3,7 @@
     src: url('../font/Montserrat-Medium.ttf') format('truetype');
 } */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-*,*::after,*::before{margin: 0;padding: 0;box-sizing: border-box;}
+*,*::after,*::before{margin: 0;padding: 0;box-sizing: border-box; user-select: none;cursor: default;}
 ::-webkit-scrollbar {width: 0;height: 0;}
 :root{  
     --container-padding:clamp(15px,2.6vw,50px);
@@ -21,6 +21,8 @@
     --osnova__title-h4:6.85em;
     --work-steps__item-title-text:clamp(22px,1.875vw,36px);
     --work-steps__item-text:clamp(12px,1.1vw,21px);
+    --about__subtitle-text:2.25em;
+    --about__text:1.15em;
 
     --black-background-color:#111111;
     --gray-color:#ACACAC;
@@ -204,7 +206,15 @@ body {
       pointer-events: auto;
       overflow: hidden;
     }
-
+#background__container-manage{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100vw;
+      height: 15vw;
+      z-index: 1;
+      pointer-events: auto;
+      overflow: hidden;
+    }
 .square {
     width: 5vw;
     height: 5vw;
@@ -345,6 +355,7 @@ body {
     width:75%;
     display: flex;
     justify-content: space-between;
+    border-width: 50%;
     padding:0 var(--container-padding);
 }
 .work-steps__column{
@@ -373,8 +384,7 @@ body {
     flex-direction: column;
     justify-content: center;
 }
-
-.work-steps__title {
+.h4__title{
     font-size:var(--osnova__title-h4);
     line-height:90%;
     font-weight:600;
@@ -431,7 +441,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin:20vh 0 5vh;
+    margin-bottom:5vh;
 }
 .team__square {
     width:8px;
@@ -479,4 +489,90 @@ body {
 .team__position {
     font-size: clamp(12px,1.15vw,22px);
     font-weight:400;
+}
+
+
+
+
+/* about ---------------------------------------- */
+.about__block {
+    height: 50vh;
+    display: flex;
+    justify-content: space-between;
+}
+.about__section {
+    border: 1px solid var(--polosa-color);
+    width: 60vw;
+}
+.about__first-block{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0 var(--container-padding);
+}
+.about__text {
+    padding-top:var(--container-padding);
+    font-size: var(--about__text);
+    height: 80%;
+    line-height:140%;
+}
+.about__text--last-block{
+    padding: 0 var(--container-padding);
+}
+.about__section--info {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+.about__subsection {
+    padding:0 var(--container-padding);
+    width: 50%;
+    height: 80%;
+}
+.about__subtitle {
+    font-size:var(--about__subtitle-text);
+    font-weight: 600;
+}
+.about__block--benefits {
+    height: 35vh;
+}
+
+.about-mobile {
+}
+.about-mobile__section {
+}
+.about-mobile__block {
+}
+.about-mobile__title {
+    font-size:60px;
+    line-height: 90%;
+    letter-spacing:-0.05em;
+    font-weight: 600;
+    padding:calc(var(--container-padding)*2) var(--container-padding);
+}
+.about-mobile__subtitle {
+    font-size:20px;
+    font-weight: 500;
+    color: var(--gray-color);
+}
+.about-mobile__subtitle-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:calc(var(--container-padding)*1.5) var(--container-padding);
+    border: 1px solid var(--polosa-color);
+}
+.js-toggle {
+}
+.about-mobile__content {
+    overflow: hidden;
+  height: 0;
+}
+.js-content {
+}
+.about-mobile__text {
+    padding:var(--container-padding);
+    border-bottom:1px solid var(--polosa-color);
+    line-height:140%;
 }
