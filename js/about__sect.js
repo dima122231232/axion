@@ -1,9 +1,9 @@
 gsap.utils.toArray('.white-anim').forEach(el => {
   el.addEventListener('mouseenter', () =>
-    gsap.to(el, { backgroundColor: '#111111', color: '#FFD2D8', duration: 0.3 })
+    gsap.to(el, { backgroundColor: '#111111', color: '#FFD2D8', duration: 0.1 })
   );
   el.addEventListener('mouseleave', () =>
-    gsap.to(el, { backgroundColor: '#000000', color: '#ffffff', duration: 0.33 })
+    gsap.to(el, { backgroundColor: '#000000', color: '#ffffff', duration: 0.1 })
   );
 });
 

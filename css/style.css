@@ -372,6 +372,7 @@ body {
     pointer-events: none;
     position: relative;
     height: 100%;
+    transform: translateX(-110px);
 }
 
 .work-steps__title-wrapper {
@@ -462,20 +463,20 @@ body {
 }
 .team__member {
     width:calc(33.3% - calc(var(--container-padding) / 1.5));
+    /* filter: grayscale(100%) blur(0px); */
 }
 .team__photo-block {
     height: 65vh;
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: end;
 }
 .team__photo {
     position: absolute;
-     height: 140%;
+     height: 120%;
        width: 100%;
     object-fit: cover;
-     filter: grayscale(0%) blur(0px);
      
 }
 /* .team__photo:hover{
