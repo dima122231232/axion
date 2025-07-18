@@ -3,7 +3,7 @@
     src: url('../font/Montserrat-Medium.ttf') format('truetype');
 } */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-*,*::after,*::before{margin: 0;padding: 0;box-sizing: border-box; user-select: none;cursor: default;}
+*,*::after,*::before{margin: 0;padding: 0;box-sizing: border-box; }
 ::-webkit-scrollbar {width: 0;height: 0;}
 :root{  
     --container-padding:clamp(15px,2.6vw,50px);
@@ -38,9 +38,12 @@
 body{background-color: var(--black-background-color);color: #fff;font-family: "Montserrat", sans-serif;caret-color: transparent;}
 body {
   -webkit-overflow-scrolling: touch;
-  overflow-y: scroll; /* обязательно указать, иначе не будет эффекта */
+  overflow-y: scroll;
 }
-
+::selection {
+  background:var(--pink-color);
+  color:  var(--black-background-color) ; 
+}
 .ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo, .services__item,.invis img{will-change: transform;will-change: scroll-position;}
 /* header----------------------------- */
 .header {
@@ -73,6 +76,7 @@ body {
 .header__logo:hover path {
     fill: var(--pink-color);
     stroke: var(--pink-color);
+    cursor: pointer;
   }
 .header__nav {
     padding-left:15vw;
@@ -94,6 +98,7 @@ body {
     font-weight:400;
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 .header__link .gmail__underline, .header__link .tel__underline {
   position: absolute;
@@ -617,7 +622,7 @@ body {
 }
 .serv-color-item{
     background-color: var(--polosa-color);
-    color: #FFD2D8;
+    color: var(--pink-color);
 }
 .invis {
     position: fixed;
@@ -705,8 +710,35 @@ body {
     width: 100%;
     object-fit: cover;
     opacity: .35;
-    transition: opacity 1s;
+    transition: opacity 1s, filter 1s;
+    filter: blur(10px);
 }
 .block-img img:hover{
      opacity: 1;
+     filter: blur(0px);
+}
+
+
+
+.reviews__viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.reviews__track {
+  display: flex;
+  cursor: grab;
+  /* ширина трека будет установлена в JS */
+}
+
+.reviews__track:active {
+  cursor: grabbing;
+}
+
+.reviews__item {
+  flex: 0 0 calc(100% / 5); /* показываем по 5 отзывов */
+  box-sizing: border-box;
+  padding: 1rem;
+  /* здесь можно добавить стили карточки отзыва */
 }

@@ -10,6 +10,7 @@
     <script src="libs/gsap/ScrollTrigger.min.js"></script>
     <script src="libs/gsap/ScrollSmoother.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     
     <title>Document</title>
 </head>     
@@ -91,7 +92,7 @@
         <div class="background__container" id="background__container"></div>
         <section class="hero">
         <div style="height: 100vh;display: flex;align-items: center;position: relative;" class="hero__plus">
-            <video class="promo__video" autoplay muted loop playsinline><source src="video/2025_02_homerun_showreel_sanstexte.mp4" type="video/mp4" />
+            <video class="promo__video" autoplay muted loop playsinline><source src="video/2025_02_homerun_showreel_sanstexte.mp4" type="video/mp4" loading="lazy"/>
                 Ваш браузер не поддерживает видео.
             </video>
             <div class="hero__content">
@@ -588,6 +589,36 @@
             </div>
         </section>
 
+        <section class="reviews" aria-label="Отзывы о AXION AI">
+            <h2 class="reviews__title">
+                Мы создали AXION AI, чтобы помочь стартапам и бизнесу работать быстрее
+            </h2>
+            <p class="reviews__text">
+                Наша цель — автоматизировать рутину, усилить команды и открыть новые возможности с помощью ИИ-агентов.
+            </p>
+            <div class="reviews__viewport">
+                <div class="reviews__track">
+                    <!-- Исходные 7 отзывов -->
+                    <div class="reviews__item">Отзыв 1</div>
+                    <div class="reviews__item">Отзыв 2</div>
+                    <div class="reviews__item">Отзыв 3</div>
+                    <div class="reviews__item">Отзыв 4</div>
+                    <div class="reviews__item">Отзыв 5</div>
+                    <div class="reviews__item">Отзыв 6</div>
+                    <div class="reviews__item">Отзыв 7</div>
+                    <!-- Клонированные 7 отзывов для бесконечного эффекта -->
+                    <div class="reviews__item">Отзыв 1</div>
+                    <div class="reviews__item">Отзыв 2</div>
+                    <div class="reviews__item">Отзыв 3</div>
+                    <div class="reviews__item">Отзыв 4</div>
+                    <div class="reviews__item">Отзыв 5</div>
+                    <div class="reviews__item">Отзыв 6</div>
+                    <div class="reviews__item">Отзыв 7</div>
+                </div>
+            </div>
+        </section>
+
+
         <div style="height: 500vh;"></div>
     </main> 
 
@@ -603,6 +634,7 @@
 <script src="js/about__sect.js"></script>
 <script src="js/team.js"></script>
 <script src="js/services.js"></script>
+<script src="js/reviews.js"></script>
 
 </body>
 </html>

@@ -11,16 +11,6 @@ if(ScrollTrigger.isTouch !==1){
     })
 }
 
-// else{
-//     const smoother = ScrollSmoother.create({
-//     wrapper: '.wrapper',
-//     content: '.content',
-//     smoothTouch: .2,
-//     normalizeScroll: true,
-//     ignoreMobileResize: true,
-//     });
-// }
-
 
 
 
