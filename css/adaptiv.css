@@ -15,14 +15,8 @@
         --about__subtitle-text:1.55em;
         --about__text:.8em;
     }
-    .work-steps__image{margin-bottom:0;align-items: center;}
-    .work-steps__image{width: 60%;}
     .img-wrapper{height: 35vh;}
-    .work-steps__item-title{font-size:calc(var(--work-steps__item-title-text) * .8);}
-    .work-steps__item-text{font-size:calc(var(--work-steps__item-text) * .8);}
 }@media (max-width: 900px) {
-    .work-steps__title-wrapper{text-align: center;}
-    .work-steps__text{display: none;}
     :root{
         --about__subtitle-text:1.25em;
         --about__text:.6em;
@@ -41,7 +35,7 @@
 }
 @media (max-width: 768px) {
     .about-mobile{display: block;}
-    .ai-section__column--visual{display: none;}
+    .ai-section__column--visual,.team__member--block-blur{display: none;}
     .ai-section__column{width:50%;}
     .ai-section__column--human{border-left: none;}
     .ai-section__heading--human{padding-left:0;padding-right:calc(var(--container-padding) /4);}
@@ -56,15 +50,7 @@
 
     /* work-steps------------------------ */
      :root{--osnova__title-h4:3.5em;}
-    .work-steps__image{width: 100%;border-top:1px solid var(--polosa-color);border-bottom:1px solid var(--polosa-color);padding: 0;}
-    .work-steps__block{display: block;height: auto;}
-    .work-steps__title-wrapper {text-align: start;padding:5.5vh 0 5.5vh var(--container-padding);width: 100%;height: 25svh;}
-    .work-steps__content{flex-wrap: wrap;height: 50svh;}
-    .work-steps__item{height: 25vh;width: 50%;}
-    .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * 1.4);}
-    .work-steps__item-text {font-size: calc(var(--work-steps__item-text) * 1.4);}
     .about{display:none;}
-    .work-steps__item,.work-steps__item-title{pointer-events: none;}
     
     
     
@@ -76,11 +62,10 @@
         filter:grayscale(100%);
     }
     .team__photo-block{height: 70vw;}
+    .team__title-wrapper{justify-content: center;padding-left: 0;}
 
 }
 @media (max-width: 700px) {
-    .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * 1.1);}
-    .work-steps__item-text {font-size: calc(var(--work-steps__item-text) * 1.1);}
 }
 @media (max-width: 530px) {
     .hero{height: 180vh;}
@@ -91,8 +76,6 @@
     .button-request{bottom:150px;}
 
     :root{--osnova__title-h4:2.5em;}
-    .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * .8);}
-    .work-steps__item-text {font-size: calc(var(--work-steps__item-text) * 1);}
     .img-wrapper{height:25svh;}
 
 }
@@ -102,5 +85,4 @@
     .ai-section__title{font-size:var(--ai-section__title);}
     .ai-section__text-group{font-size:var(--ai-section__text-group);}
 
-    .work-steps__item-title {font-size: calc(var(--work-steps__item-title-text) * .7);}
 }

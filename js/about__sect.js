@@ -15,7 +15,7 @@ if(!isMobile){const c2 = document.getElementById('background__container-manage')
         s.className = 'square';
         s.onmouseenter = () => {
         gsap.killTweensOf(s);
-        gsap.set(s, {opacity: 1, backgroundColor: '#FFD2D8'});
+        gsap.set(s, {opacity: 1, backgroundColor: '#4D4143'});
         };
         s.onmouseleave = () => {
         [0.6, 0.3, 0.2, 0.1, 0].forEach((o, i) =>
@@ -53,3 +53,5 @@ document.querySelectorAll('.about-mobile__subtitle-block').forEach((header) => {
       }
     });
   });
+gsap.fromTo(".about",{filter: "grayscale(0%) blur(0px)"}, {filter: "grayscale(1000%) blur(10px)",ease: "none",scrollTrigger: {trigger: ".about",start: "42% top",end:"bottom top",scrub: true}});
+gsap.fromTo(".about",{filter: "grayscale(100%) blur(10px)"}, {filter: "grayscale(0%) blur(0px)",ease: "none",scrollTrigger: {trigger: ".about",start: "-100% top",end:"-25% top",scrub: true}});
