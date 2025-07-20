@@ -349,8 +349,11 @@ body {
     position: absolute;
     transform: translateY(-25%);
 } */
-
-.ai-section__text-group--sr .ai-section__text-group--sr p{
+.ai-section__text-group--sr{
+    padding-left:0!important;;
+    text-align: center;
+}
+.ai-section__text-group--sr p{
     z-index: 5;
      color: #000;
 }

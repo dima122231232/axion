@@ -5,12 +5,12 @@ document.querySelectorAll('.services__items-block').forEach(block => {
     const {top, height} = block.getBoundingClientRect();
     fromTop = e.clientY < top + height / 2;
     if(!fromTop) gsap.set(items, {y: '0%'});
-    gsap.to(items, {y: '-100%', duration: 0.3, ease: "none"});
+    gsap.to(items, {y: '-100%', duration: 0.15, ease: "none"});
   });
   block.addEventListener('mouseleave', () => {
     const target = fromTop ? '0%' : '-200%';
     const onComplete = fromTop ? () => gsap.set(items, {y: '-200%'}) : null;
-    gsap.to(items, {y: target, duration: 0.3, ease: "none", onComplete});
+    gsap.to(items, {y: target, duration: 0.15, ease: "none", onComplete});
   });
 });
 
