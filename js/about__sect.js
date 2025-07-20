@@ -1,6 +1,6 @@
 gsap.utils.toArray('.white-anim').forEach(el => {
-  el.addEventListener('mouseenter', () => gsap.to(el, {backgroundColor: '#111111', color: '#FFD2D8', duration: 0.1}));
-  el.addEventListener('mouseleave', () => gsap.to(el, {backgroundColor: '#000000', color: '#ffffff', duration: 0.1}));
+  el.addEventListener('mouseenter', () => gsap.to(el, {backgroundColor: '#111111', color: '#FFD2D8', duration: .3}));
+  el.addEventListener('mouseleave', () => gsap.to(el, {backgroundColor: 'unset', color: '#ffffff', duration: .3}));
 });
 
 if(!isMobile){
@@ -27,4 +27,7 @@ document.querySelectorAll('.about-mobile__subtitle-block').forEach(header => {
 });
 
 gsap.fromTo(".about", {filter: "grayscale(0%) blur(0px)"}, {filter: "grayscale(1000%) blur(10px)", ease: "none", scrollTrigger: {trigger: ".about", start: "42% top", end:"bottom top", scrub: true}});
-gsap.fromTo(".about", {filter: "grayscale(100%) blur(10px)"}, {filter: "grayscale(0%) blur(0px)", ease: "none", scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
+gsap.fromTo(".about", {backgroundColor:"rgba(25,25,25,1)"}, {backgroundColor:"rgba(25,25,25,0)",scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
+gsap.fromTo(".about__section", {border:"1px solid rgba(255,255,255,0)"}, {border:"1px solid rgba(255,255,255,.1)", scrollTrigger: {trigger: ".about", start: "-75% top", end:"0% top", scrub: true}});
+gsap.fromTo(".about_bl-ef", {filter: "grayscale(100%) blur(10px)"}, {filter: "grayscale(0%) blur(0px)", ease: "none", scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
+

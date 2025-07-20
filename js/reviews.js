@@ -1,117 +1,174 @@
-(() => {
-  const viewport      = document.querySelector('.reviews__viewport');
-  const track         = document.querySelector('.reviews__track');
-  const items         = gsap.utils.toArray('.reviews__item');
-  const origCount     = items.length / 2;  
-  const visibleCount  = 5;
+const viewport = document.querySelector('.reviews__viewport');
+const track = document.querySelector('.reviews__track');
+let autoScrollTimeout;
 
-  const vpWidth   = viewport.offsetWidth;
-  const itemW     = vpWidth / visibleCount;
-  const trackW    = itemW * items.length;
-  const wrapMin   = -itemW * origCount;
-  const wrapMax   = 0;
-  const wrapRange = wrapMax - wrapMin;
-
-  let isDragging = false;
-  let startX     = 0;
-  let velocity   = 0;
-  let lastTime   = 0;
-  let rafId      = null;
-
-  viewport.style.overflow = 'hidden';
-  track.style.width       = `${trackW}px`;
-  track.style.cursor      = 'grab';
-  items.forEach(item => {
-    Object.assign(item.style, {
-      flex: `0 0 ${itemW}px`,
-      boxSizing: 'border-box',
-      opacity: '0.5',
-      transition: 'opacity 0.2s'
+fetch('https://backend.xoplatform.de/api:US7WAq3I/review')
+  .then(r => r.json())
+  .then(data => {
+    track.innerHTML = '';
+    data.forEach(r => {
+      const article = document.createElement('article');
+      article.className = 'reviews__item';
+      article.setAttribute('itemscope', '');
+      article.setAttribute('itemtype', 'http://schema.org/Review');
+      article.innerHTML = `
+        <p class="reviews__text" itemprop="reviewBody">${r.text}</p>
+        <div class="reviews__author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="reviews__photo" src="${r.image.url}" itemprop="image" loading="lazy">
+          <h6 class="reviews__name" itemprop="name">${r.full_name}</h6>
+        </div>`;
+      track.appendChild(article);
     });
+    anim.items = gsap.utils.toArray('.reviews__item');
+    anim.origCount = anim.items.length;
+    anim.items.forEach(item => track.appendChild(item.cloneNode(true)));
+    setup();
+
+    gsap.fromTo(".footer",{ y: -0.7 * vh },{y: .3 * vh,ease: "none",scrollTrigger: {trigger: ".reviews",
+        start: () => `bottom+=${0.1 * vh} bottom`,
+        end: () => `+=${1 * vh}`,scrub: true,invalidateOnRefresh: true }});
+    gsap.fromTo(".footer",{ filter: "grayscale(100%) blur(10px)"}, { filter: "grayscale(0%) blur(0px)",ease:"none", scrollTrigger: { trigger: ".reviews", start: () => `bottom+=${.1 * vh} bottom`,end: () => `+=${.7 * vh}`, scrub: true,invalidateOnRefresh: true  }});
+     ScrollTrigger.refresh();
+    scheduleAutoScroll();
   });
-  gsap.set(track, { x: 0 });
-  updateOpacity(); 
 
-  function mod(n, m) {
-    return ((n % m) + m) % m;
+function setup() {
+  anim.items = gsap.utils.toArray('.reviews__item');
+  anim.origCount = anim.items.length / 2;
+
+  const cs = getComputedStyle(anim.items[0]);
+  anim.itemW = anim.items[0].offsetWidth +
+               parseFloat(cs.marginLeft) +
+               parseFloat(cs.marginRight);
+
+  anim.wrapMin = -anim.itemW * anim.origCount;
+  anim.wrapRange = -anim.wrapMin;
+  anim.centerOffset = (viewport.clientWidth - anim.itemW) / 2;
+
+  gsap.set(track, { x: wrap(anim.centerOffset) });
+  anim.items.forEach(item => item.style.opacity = '0.4');
+  updateOpacity();
+
+  window.addEventListener('resize', () => {
+    anim.centerOffset = (viewport.clientWidth - anim.itemW) / 2;
+    gsap.set(track, { x: wrap(anim.centerOffset) });
+    updateOpacity();
+  });
+
+  track.addEventListener('pointerdown', startDrag);
+  window.addEventListener('pointermove', onDrag);
+  window.addEventListener('pointerup', endDrag);
+}
+
+function startDrag(e) {
+  anim.isDragging = true;
+  anim.startX = e.clientX;
+  anim.lastTime = performance.now();
+  anim.velocity = 0;
+  track.setPointerCapture(e.pointerId);
+  if (anim.raf) cancelAnimationFrame(anim.raf);
+  clearTimeout(autoScrollTimeout);
+}
+
+function onDrag(e) {
+  if (!anim.isDragging) return;
+  e.preventDefault();
+  const now = performance.now();
+  const dx = e.clientX - anim.startX;
+  const dt = now - anim.lastTime || 16;
+  anim.velocity = dx / dt;
+  anim.lastTime = now;
+  anim.startX = e.clientX;
+
+  const x0 = gsap.getProperty(track, 'x');
+  gsap.set(track, { x: wrap(x0 + dx) });
+  updateOpacity();
+}
+
+function endDrag(e) {
+  if (!anim.isDragging) return;
+  anim.isDragging = false;
+  track.releasePointerCapture(e.pointerId);
+  anim.raf = requestAnimationFrame(inertia);
+}
+
+function inertia() {
+  const friction = 0.99;
+  const stopThreshold = 0.15;
+  anim.velocity *= friction;
+
+  if (Math.abs(anim.velocity) < stopThreshold) {
+    snap();
+    return;
   }
 
-  function wrap(x) {
-    return mod(x - wrapMin, wrapRange) + wrapMin;
-  }
+  const dx = anim.velocity * 16;
+  const x0 = gsap.getProperty(track, 'x');
+  gsap.set(track, { x: wrap(x0 + dx) });
+  updateOpacity();
+  anim.raf = requestAnimationFrame(inertia);
+}
 
-  function updateOpacity() {
-    const vpRect  = viewport.getBoundingClientRect();
-    const centerX = vpRect.left + vpRect.width / 2;
-    items.forEach(item => {
-      const r    = item.getBoundingClientRect();
-      const icX  = r.left + r.width / 2;
-      item.style.opacity = Math.abs(icX - centerX) < itemW / 2 ? '1' : '0.5';
-    });
-  }
+function snap() {
+  anim.isSnapping = true;
+  const x0 = gsap.getProperty(track, 'x');
+  const raw = -(x0 - anim.centerOffset) / anim.itemW;
+  const idx = Math.round(raw);
+  const xT = anim.centerOffset - idx * anim.itemW;
 
-  function snapToClosest() {
-    const x0 = gsap.getProperty(track, 'x');
-    const rawIndex = (visibleCount - 1) / 2 - x0 / itemW;
-    const rounded  = Math.round(rawIndex);
-    const xSnap    = ((visibleCount - 1) / 2 - rounded) * itemW;
-    const xFinal   = wrap(xSnap);
-
-    gsap.to(track, {
-      x: xFinal,
-      duration: 0.3,
-      ease: 'power3.out',
-      onUpdate: updateOpacity
-    });
-  }
-
-  function inertiaLoop() {
-    velocity *= 0.95;
-    if (Math.abs(velocity) < 0.001) {
-      rafId = null;
-      snapToClosest();
-      return;
+  gsap.to(track, {
+    x: wrap(xT),
+    duration: 0.3,
+    ease: 'power3.out',
+    onUpdate: updateOpacity,
+    onComplete: () => {
+      anim.isSnapping = false;
+      scheduleAutoScroll();
     }
-    const dx = velocity * 16;
-    const x0 = gsap.getProperty(track, 'x');
-    gsap.set(track, { x: wrap(x0 + dx) });
-    updateOpacity();
-    rafId = requestAnimationFrame(inertiaLoop);
-  }
-
-  track.addEventListener('pointerdown', e => {
-    isDragging = true;
-    startX     = e.clientX;
-    lastTime   = performance.now();
-    velocity   = 0;
-    track.setPointerCapture(e.pointerId);
-    track.style.cursor = 'grabbing';
-    if (rafId) cancelAnimationFrame(rafId);
   });
+}
 
-  window.addEventListener('pointermove', e => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const now = performance.now();
-    const dx  = e.clientX - startX;
-    const dt  = now - lastTime || 16;
+function scheduleAutoScroll() {
+  clearTimeout(autoScrollTimeout);
+  autoScrollTimeout = setTimeout(() => {
+    if (!anim.isDragging && !anim.isSnapping) {
+      scrollToNext();
+    }
+  }, 7000);
+}
 
-    velocity = dx / dt;
-    lastTime = now;
-    startX   = e.clientX;
+function scrollToNext() {
+  const x0 = gsap.getProperty(track, 'x');
+  const raw = -(x0 - anim.centerOffset) / anim.itemW;
+  const idx = Math.round(raw);
+  const nextIdx = (idx + 1) % anim.origCount;
+  const xT = anim.centerOffset - nextIdx * anim.itemW;
 
-    const x0 = gsap.getProperty(track, 'x');
-    gsap.set(track, { x: wrap(x0 + dx) });
-    updateOpacity();
+  gsap.to(track, {
+    x: wrap(xT),
+    duration: 0.6,
+    ease: 'power2.inOut',
+    onUpdate: updateOpacity,
+    onComplete: scheduleAutoScroll
   });
+}
 
-  function endDrag(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    track.style.cursor = 'grab';
-    track.releasePointerCapture && track.releasePointerCapture(e.pointerId);
-    rafId = requestAnimationFrame(inertiaLoop);
-  }
-  window.addEventListener('pointerup',   endDrag);
-  window.addEventListener('pointercancel', endDrag);
-})();
+function updateOpacity() {
+  const mid = viewport.getBoundingClientRect().left + viewport.clientWidth / 2;
+  anim.items.forEach(item => {
+    const rect = item.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    item.style.opacity = Math.abs(cx - mid) < anim.itemW / 2 ? '1' : '0.4';
+  });
+}
+
+function mod(n, m) {
+  return ((n % m) + m) % m;
+}
+
+function wrap(x) {
+  return mod(x - anim.wrapMin, anim.wrapRange) + anim.wrapMin;
+}
+
+animateWords(".reviews__title", ".reviews", "top 70%");
+animateWords(".reviews__text-osn", ".reviews", "top 65%");

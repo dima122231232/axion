@@ -36,20 +36,3 @@ window.addEventListener("scroll", () => {
   gsap.to(["body", ".header"], { backgroundColor: top <= 0 ? "#000" : "#111111", duration: .5, overwrite: "auto" });
 });
 
-gsap.set(".button-request-fake", { rotate: 5, yPercent: 100 });
-
-const btn = document.querySelector(".button-request"),
-      orig = ".button-request-original",
-      fake = ".button-request-fake";
-
-btn.addEventListener("mouseenter", () => {
-  gsap.to(btn, { scale: .9, ease: anim, duration: .4 });
-  gsap.timeline().to(orig, { rotate: 10, duration: .4, ease: anim }).to(orig, { yPercent: -200, duration: .4, ease: anim }, 0.05);
-  gsap.timeline().to(fake, { rotate: 0, duration: .4, ease: anim }).to(fake, { yPercent: -100, duration: .4, ease: anim }, 0.05);
-});
-
-btn.addEventListener("mouseleave", () => {
-  gsap.to(btn, { scale: 1, ease: anim, duration: .4 });
-  gsap.timeline().to(orig, { rotate: 0, duration: .4, ease: anim }).to(orig, { yPercent: 0, duration: .4, ease: anim }, 0.05);
-  gsap.timeline().to(fake, { rotate: 5, duration: .4, ease: anim }).to(fake, { yPercent: 100, duration: .4, ease: anim }, 0.05);
-});

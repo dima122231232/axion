@@ -22,3 +22,28 @@ const animateWords = (sel, trig, start = "top center") => {
     );
   });
 };
+gsap.utils.toArray(".button-request").forEach((btn) => {
+  const orig = btn.querySelector(".button-request-original");
+  const fake = btn.querySelector(".button-request-fake");
+
+  gsap.set(fake, { rotate: 5, yPercent: 100 });
+
+  btn.addEventListener("mouseenter", () => {
+    gsap.to(btn, { scale: 0.9, ease: anim, duration: 0.4 });
+    gsap.timeline()
+      .to(orig, { rotate: 10, duration: 0.4, ease: anim })
+      .to(orig, { yPercent: -200, duration: 0.4, ease: anim }, 0.05);
+    gsap.timeline()
+      .to(fake, { rotate: 0, duration: 0.4, ease: anim })
+      .to(fake, { yPercent: -100, duration: 0.4, ease: anim }, 0.05);
+  });
+  btn.addEventListener("mouseleave", () => {
+    gsap.to(btn, { scale: 1, ease: anim, duration: 0.4 });
+    gsap.timeline()
+      .to(orig, { rotate: 0, duration: 0.4, ease: anim })
+      .to(orig, { yPercent: 0, duration: 0.4, ease: anim }, 0.05);
+    gsap.timeline()
+      .to(fake, { rotate: 5, duration: 0.4, ease: anim })
+      .to(fake, { yPercent: 100, duration: 0.4, ease: anim }, 0.05);
+  });
+});

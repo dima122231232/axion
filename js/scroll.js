@@ -1,16 +1,23 @@
-// if (!window.matchMedia('(max-aspect-ratio: 1/1), (max-width: 780px)').matches){
-//     document.querySelector('.content').style.height = `${document.querySelector('.content').offsetHeight + (window.outerHeight - window.innerHeight)}px`;}
-    
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-if(ScrollTrigger.isTouch !==1){
-    ScrollSmoother.create({
-        wrapper: '#wrapper',
-        content: '#content',
-        smooth:1.5,
-        effects:true,
-    })
+if (ScrollTrigger.isTouch !== 1) {
+  ScrollSmoother.create({
+    wrapper: '#wrapper',
+    content: '#content',
+    smooth: 1.5,
+    effects: true,
+  });
+  ScrollTrigger.refresh();
+//   function compensateHeightLoss() {
+//     const content = document.querySelector('#content');
+//     const lostHeight = window.outerHeight - window.innerHeight;
+
+//     if (lostHeight > 0) {
+//       const extra = lostHeight + 1;
+//       content.style.height = content.offsetHeight + extra + 'px';
+//     }
+
+//     ScrollTrigger.refresh(true); 
+//   }
+
+//   window.addEventListener('load', compensateHeightLoss);
+//   window.addEventListener('resize', compensateHeightLoss);
 }
-
-
-
-
