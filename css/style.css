@@ -45,7 +45,7 @@ body {
   background:var(--pink-color);
   color:  var(--black-background-color) ; 
 }
-.ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo, .services__item,.invis img, .footer{will-change: transform;will-change: scroll-position;}
+.ai-section__heading ,.promo__video,.work-steps,.work-steps__item .img-wrapper img, .team__photo, .services__item,.invis img, .footer,.selection-system{will-change: transform;will-change: scroll-position;}
 /* header----------------------------- */
 .header {
     width: 100vw;

@@ -23,13 +23,13 @@ document.querySelectorAll('.services__items-block').forEach((block, i) => {
 document.querySelectorAll(".services__items-block").forEach((block, i) => {
   block.style.cursor = "pointer";
   block.onclick = () => location.href = [
-    "stroitelstvo.html",
-    "proizvodstvo.html",
-    "obrazovanie.html",
-    "nedvizhimost.html",
-    "prodazhi.html",
-    "ecommerce.html",
-    "hr-agent.html"
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html",
+    "page/stroitelstvo.html"
   ][i];
 });
 
