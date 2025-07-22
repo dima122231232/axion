@@ -226,10 +226,10 @@ body {
       pointer-events: auto;
       overflow: hidden;
     }
-.square {
+/* .square {
     width: 5vw;
     height: 5vw;
-}
+} */
 
 .hero__line {
     position: absolute;
@@ -290,6 +290,7 @@ body {
 .ai-section__column {
     position: relative;
     width: 33.333%;
+    background-color: #000;
 }
 
 .ai-section__column--human {
@@ -663,6 +664,7 @@ body {
     border-bottom: 1px solid var(--polosa-color);
     height:10vh;
     transform: translateY(-200%);
+    background-color: #000;
 }
 .services__item-title,.services__item-link {
      font-size: 69px;
@@ -751,6 +753,7 @@ body {
         overflow: hidden;
         display: flex;
         align-items: end;
+        background-color: #000;
     }
 
 
@@ -1022,3 +1025,17 @@ body {
 .footer__button{
     width:calc(100% - calc(var(--container-padding) / 2));
 }
+
+.large-header {
+	position: absolute;
+    height: 100vh;
+	width: 100%;
+	/* background: #000; */
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: -1;
+}
+ #demo-canvas {
+      display: block;
+    }

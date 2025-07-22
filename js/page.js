@@ -1,3 +1,13 @@
+if (ScrollTrigger.isTouch !== 1) {
+  ScrollSmoother.create({
+    wrapper: '#wrapper',
+    content: '#content',
+    smooth: 2.5,
+    effects: true,
+  });
+  ScrollTrigger.refresh();
+}
+
 gsap.timeline({scrollTrigger:{trigger:".system-first",start:"top top",end:"bottom top",scrub:true,pin:true,pinSpacing:false}})
   .to({}, {duration:0.5}).to(".system-first",{opacity:0,filter:"grayscale(100%) blur(10px)",backgroundColor:"#111111"},0.5);
 gsap.timeline({scrollTrigger:{trigger:".system-two",start:"top top",end:"bottom top",scrub:true,pin:true,pinSpacing:false}})
