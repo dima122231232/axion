@@ -33,6 +33,6 @@ window.addEventListener("load", () => {
 
 window.addEventListener("scroll", () => {
   const top = document.querySelector(".hero__plus").getBoundingClientRect().bottom;
-  gsap.to(["body", ".header"], { backgroundColor: top <= 0 ? "#000" : "#111111", duration: .5, overwrite: "auto" });
+  gsap.to(["body", ".header"], { backgroundColor: top <= 0 ? "#0B0B0E" : "#111111", duration: .5, overwrite: "auto" });
 });
 

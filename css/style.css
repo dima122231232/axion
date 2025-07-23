@@ -31,6 +31,8 @@
     --pink-color:#FFD2D8;
     --polosa-color:rgba(255,255,255,.1);
     --footer-opacity-color:#808080;
+    --new-color:#0B0B0E;
+    --new-color-bk:#252525;
 
     --ai-section__heading-marginTop:clamp(70px,15vh,160px);
 
@@ -226,10 +228,10 @@ body {
       pointer-events: auto;
       overflow: hidden;
     }
-/* .square {
+.square {
     width: 5vw;
     height: 5vw;
-} */
+}
 
 .hero__line {
     position: absolute;
@@ -276,6 +278,7 @@ body {
     font-weight:500;
     letter-spacing: -0.03em;
     padding:10vh 0 calc(var(--index)*3) var(--container-padding);
+    background-color: #0B0B0E;
 }
 .word {
   display: inline-block;
@@ -290,7 +293,7 @@ body {
 .ai-section__column {
     position: relative;
     width: 33.333%;
-    background-color: #000;
+    background-color: rgba(11, 11,14,.9);
 }
 
 .ai-section__column--human {
@@ -301,7 +304,7 @@ body {
     position: sticky;
     top: 0;
     padding-top: var(--ai-section__heading-marginTop);
-    background-image: linear-gradient(#000, #000 75%, #00000000);
+    background-image: linear-gradient(#0B0B0E, #0B0B0E 75%, #00000000);
     padding-bottom:8vh;
     display: flex;
     align-items: center;
@@ -356,14 +359,14 @@ body {
 }
 .ai-section__text-group--sr p{
     z-index: 5;
-     color: #000;
+     color: #0B0B0E;
 }
 .ai-section__text-group p {
   color: #555555;
   position: relative;
 }
 .ai-section__text-group--sr p:not(.active) {
-  color: #000 !important;
+  color: #0B0B0E !important;
 }
 .ai-section__text-group--human p.active,
 .ai-section__text-group--ai p.active,
@@ -379,7 +382,7 @@ body {
   left: -50vw;
   width: 150vw;
   height: 100%;
-  background-color: #111111;
+  background-color: #fff;
   z-index: -2;
 }
 
@@ -414,8 +417,10 @@ body {
     /* margin:1px -1px 0 0; */
     border:1px solid var(--polosa-color);
     position: relative;
-    background-color: #000;
+    background-color:var(--new-color);
+    /* background-color: #fff; */
     z-index: 2;
+    /* color: #0B0B0E; */
 }
 .work-steps__item-block {
     padding:0 calc(var(--container-padding) /2 );
@@ -454,14 +459,15 @@ body {
     line-height:90%;
     letter-spacing:-0.10em;
     font-size:81px;
+    /* color: #0B0B0E; */
     padding:calc(var(--container-padding) /2);
 }
 
-.work__block-blur .color-1 {height: 15vh; background-color: #070707; }
-.work__block-blur .color-2 { height: 15vh; background-color: #101010; }
-.work__block-blur .color-3 { height: 15vh; background-color: #131313; }
-.work__block-blur .color-4 { height: 15vh; background-color: #161616; }
-.work__block-blur .color-5 { height: 70vh; background-color: #191919; }
+.color-1 {height: 15vh; background-color:var(--new-color-bk);opacity:.2}
+.color-2 { height: 15vh; background-color: var(--new-color-bk);opacity:.4;}
+.color-3 { height: 15vh; background-color: var(--new-color-bk);opacity:.6;}
+.color-4 { height: 15vh; background-color: var(--new-color-bk);opacity:.8;}
+.color-5 { height: 70vh; background-color:var(--new-color-bk)}
 
 
 .work-steps__content .work-steps__items:nth-child(1) {margin-top:var(--header-height);}
@@ -507,6 +513,7 @@ body {
     right: 0;
     /* background-color: #050505; */
     position: absolute;
+    opacity: .3;
 }
 .team__photo-block {
     height: 65vh;
@@ -543,6 +550,9 @@ body {
 
 
 /* about ---------------------------------------- */
+/* .about{
+    color: #fff;
+} */
 .about__block {
     height: 50vh;
     display: flex;
@@ -572,7 +582,9 @@ body {
     display: flex;
     justify-content:space-between;
     align-items: center;
+
 }
+
 .about__subsection {
     padding:0 var(--container-padding);
     width: 50%;
@@ -615,8 +627,24 @@ body {
     border-bottom:1px solid var(--polosa-color);
     line-height:140%;
 }
-
-
+.pixel-wrap {
+      width: 100vw;
+      height: 25vw;
+      display: grid;
+      grid-template-columns: repeat(20, 5vw);
+      grid-auto-rows: 5vw;
+      
+    }
+    .pixel {
+      /* background: rgb(5,5,15); */
+      background-color: var(--new-color-bk);
+      /* background-color:rgba(5,5,15,1); */
+      opacity: 1;
+      will-change: opacity, transform;
+    }
+#pixelWrap2{
+    margin-top:150px;
+}
 
 
 
@@ -664,7 +692,7 @@ body {
     border-bottom: 1px solid var(--polosa-color);
     height:10vh;
     transform: translateY(-200%);
-    background-color: #000;
+    background-color: #0B0B0E;
 }
 .services__item-title,.services__item-link {
      font-size: 69px;
@@ -672,8 +700,9 @@ body {
      font-weight:500;
 }
 .serv-color-item{
-    background-color: var(--polosa-color);
+    background-color: #2F2F2F;
     color: var(--pink-color);
+    
 }
 .invis {
     position: fixed;
@@ -745,21 +774,21 @@ body {
 
 
     .block-img{
-        padding:0 var(--container-padding);
+        /* padding:0 var(--container-padding); */
         margin-top:var(--container-padding);
-        height: 80vh;
-        width:calc(100% - var(--container-padding));
+        height: 90vh;
+        /* width:calc(100% - var(--container-padding)); */
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: end;
-        background-color: #000;
+        background-color: #0B0B0E;
     }
 
 
 .block-img img{
     position: absolute;
-    height: 125%;
+    height: 150%;
     width: 100%;
     object-fit: cover;
     opacity: .35;
@@ -776,12 +805,12 @@ body {
 
 
 .reviews {
+    /* padding-top: var(--container-padding); */
     position: relative;
     z-index: 10;
-    margin-top: 250px;
     padding-bottom: 150px;
     border-bottom: 1px solid var(--polosa-color);
-    background-color: #000;
+    background-color: var(--new-color-bk);
 }
 .reviews__title {
     font-size: 60px;
@@ -795,6 +824,7 @@ body {
     font-weight: 500;
     line-height: 110%;
     color: var(--black__gray-color);
+    color: var(--pink-color);
     padding-left: var(--container-padding);
     margin:26px 0 115px;
     width: 1050px;
@@ -1027,10 +1057,11 @@ body {
 }
 
 .large-header {
+    /* top: 200vh; */
 	position: absolute;
     height: 100vh;
 	width: 100%;
-	/* background: #000; */
+	/* background: #0B0B0E; */
 	overflow: hidden;
 	background-size: cover;
 	background-position: center center;

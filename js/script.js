@@ -48,6 +48,20 @@ gsap.utils.toArray(".button-request").forEach((btn) => {
   });
 });
 
+gsap.to("#large-header", {
+  scrollTrigger: {
+    trigger: "#large-header",
+    start: "top top",
+    end: "+=131223",
+    scrub: true,
+    pin: true,
+    pinSpacing: false
+  }
+});
+
+
+
+
 
 // Простой Perlin‑шум (Stefan Gustavson)
 class SimplexNoise {
@@ -186,14 +200,3 @@ class SimplexNoise {
     requestAnimationFrame(animate);
   }
 })();
-
-gsap.to("#large-header", {
-  scrollTrigger: {
-    trigger: "#large-header",
-    start: "top top",
-    end: "+=131223",
-    scrub: true,
-    pin: true,
-    pinSpacing: false
-  }
-});

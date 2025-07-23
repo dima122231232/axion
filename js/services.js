@@ -33,4 +33,4 @@ document.querySelectorAll(".services__items-block").forEach((block, i) => {
   ][i];
 });
 
-gsap.to(".block-img img", {y: "25%", ease: "none", scrollTrigger: {trigger: ".block-img", start: "-100% top", end: "bottom top", scrub: true}});
+gsap.to(".block-img img", {y: "50%", ease: "none", scrollTrigger: {trigger: ".block-img", start: "-100% top", end: "bottom top", scrub: true}});
