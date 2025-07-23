@@ -1,7 +1,7 @@
-gsap.utils.toArray('.white-anim').forEach(el => {
-  el.addEventListener('mouseenter', () => gsap.to(el, {backgroundColor: '#0B0B0E', color: '#FFD2D8', duration: .5}));
-  el.addEventListener('mouseleave', () => gsap.to(el, {backgroundColor: 'unset', color: '#fff', duration: .5}));
-});
+// gsap.utils.toArray('.white-anim').forEach(el => {
+//   el.addEventListener('mouseenter', () => gsap.to(el, {backgroundColor: '#0B0B0E', color: '#FFD2D8', duration: .5}));
+//   el.addEventListener('mouseleave', () => gsap.to(el, {backgroundColor: 'unset', color: '#fff', duration: .5}));
+// });
 
 if(!isMobile){
 //   const c2 = document.getElementById('background__container-manage');
