@@ -27,9 +27,9 @@ document.querySelectorAll('.about-mobile__subtitle-block').forEach(header => {
 });
 
 // gsap.fromTo(".about", {filter: "grayscale(0%) blur(0px)"}, {filter: "grayscale(1000%) blur(10px)", ease: "none", scrollTrigger: {trigger: ".about", start: "42% top", end:"bottom top", scrub: true}});
-gsap.fromTo(".about", {backgroundColor:"rgba(37,37,37,.75)"}, {backgroundColor:"rgba(37,37,37,1)",scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
+// gsap.fromTo(".about", {backgroundColor:"rgba(37,37,37,.75)"}, {backgroundColor:"rgba(37,37,37,1)",scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
 gsap.fromTo(".about__section", {border:"1px solid rgba(255,255,255,0)"}, {border:"1px solid rgba(255,255,255,.1)", scrollTrigger: {trigger: ".about", start: "-75% top", end:"0% top", scrub: true}});
-gsap.fromTo(".about_bl-ef", {filter: "grayscale(100%) blur(10px)"}, {filter: "grayscale(0%) blur(0px)", ease: "none", scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
+// gsap.fromTo(".about_bl-ef", {filter: "grayscale(100%) blur(10px)"}, {filter: "grayscale(0%) blur(0px)", ease: "none", scrollTrigger: {trigger: ".about", start: "-100% top", end:"-25% top", scrub: true}});
 
 
 
@@ -71,3 +71,54 @@ function createPixelGrid(containerId, reverse = false) {
 
 createPixelGrid("pixelWrap", true);  // снизу вверх
 createPixelGrid("pixelWrap2", false); // сверху вниз
+
+
+
+ function createExplodingGrid(containerId) {
+    const w = document.getElementById(containerId),
+          c = 20,
+          s = innerWidth * 0.05,
+          r = Math.ceil(w.clientHeight / s);
+
+    Object.assign(w.style, {
+      display: "grid",
+      gridTemplateColumns: `repeat(${c}, 5vw)`,
+      gridAutoRows: "5vw"
+    });
+
+    Array.from({ length: c * r }).forEach(() =>
+      w.insertAdjacentHTML('beforeend', '<div class="pixel"></div>')
+    );
+
+    const pixels = [...w.children];
+    const shuffled = gsap.utils.shuffle(pixels);
+    const groups = [];
+    let i = 0;
+
+    while (i < shuffled.length) {
+      const groupSize = gsap.utils.random(5, 15, 1);
+      groups.push(shuffled.slice(i, i + groupSize));
+      i += groupSize;
+    }
+
+    const tl = gsap.timeline({
+      paused: true
+    });
+
+    groups.forEach((group, index) => {
+      tl.to(group, {
+        opacity: 0,
+        duration: 0.01,
+        ease: "none"
+      }, index * 0.035);
+    });
+
+    ScrollTrigger.create({
+      trigger: w,
+      start: "70% bottom+=1",
+      onEnter: () => tl.play(),
+      onLeaveBack: () => tl.reverse()
+    });
+  }
+
+  createExplodingGrid("pixelWrap3");

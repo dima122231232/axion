@@ -6,6 +6,7 @@ if (ScrollTrigger.isTouch !== 1) {
     effects: true,
   });
   ScrollTrigger.refresh();
+  }
 //   function compensateHeightLoss() {
 //     const content = document.querySelector('#content');
 //     const lostHeight = window.outerHeight - window.innerHeight;
@@ -20,4 +21,4 @@ if (ScrollTrigger.isTouch !== 1) {
 
 //   window.addEventListener('load', compensateHeightLoss);
 //   window.addEventListener('resize', compensateHeightLoss);
-}
+

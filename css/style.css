@@ -461,6 +461,7 @@ body {
     font-size:81px;
     /* color: #0B0B0E; */
     padding:calc(var(--container-padding) /2);
+    display: none;
 }
 
 .color-1 {height: 15vh; background-color:var(--new-color-bk);opacity:.2}
@@ -470,12 +471,13 @@ body {
 .color-5 { height: 70vh; background-color:var(--new-color-bk)}
 
 
-.work-steps__content .work-steps__items:nth-child(1) {margin-top:var(--header-height);}
-.work-steps__content .work-steps__items:nth-child(2){margin-top:calc(var(--header-height) + 30vh);}
-.work-steps__content .work-steps__items:nth-child(3) {margin-top:calc(var(--header-height) + 15vh);}
-.work-steps__content .work-steps__items:nth-child(4) {margin-top:calc(var(--header-height) + 45vh);}
+.work-steps__content .work-steps__items:nth-child(1) {margin-top:calc(var(--header-height) + 5vh);}
+.work-steps__content .work-steps__items:nth-child(2){margin-top:calc(var(--header-height) + 35vh);}
+.work-steps__content .work-steps__items:nth-child(3) {margin-top:calc(var(--header-height) + 20vh);}
+.work-steps__content .work-steps__items:nth-child(4) {margin-top:calc(var(--header-height) + 50vh);}
 /* team -------------------- */
 .team {
+    margin-top: 150px;
     height:100vh;
     width: 100%;
 }
@@ -550,9 +552,10 @@ body {
 
 
 /* about ---------------------------------------- */
-/* .about{
-    color: #fff;
-} */
+.about{
+    background-color: var(--new-color-bk);
+    position: absolute;
+}
 .about__block {
     height: 50vh;
     display: flex;
@@ -633,17 +636,28 @@ body {
       display: grid;
       grid-template-columns: repeat(20, 5vw);
       grid-auto-rows: 5vw;
-      
+      transform: scaleY(1.0002);
+      transform-origin: center center;
+      pointer-events: none;
     }
     .pixel {
-      /* background: rgb(5,5,15); */
       background-color: var(--new-color-bk);
-      /* background-color:rgba(5,5,15,1); */
       opacity: 1;
       will-change: opacity, transform;
     }
+#pixelWrap3 {
+  width: 100vw;
+  height: 85vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  transform: scaleY(1.0002);
+  transform-origin: center center;
+  pointer-events: none;
+}
 #pixelWrap2{
     margin-top:150px;
+    margin-bottom:-1px;
 }
 
 
@@ -658,6 +672,7 @@ body {
 
 .services {
     height:100%;
+    margin-top: 50px;
 }
 .services__container {
 }
@@ -731,7 +746,7 @@ body {
 /* models-section-------------- */
 .models-section {
     height: 100%;
-    margin-top:calc(var(--container-padding)*2);
+    margin-top:70px;
     }
 
     .models-section__title {
