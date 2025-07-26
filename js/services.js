@@ -20,17 +20,26 @@ document.querySelectorAll('.services__items-block').forEach((block, i) => {
   block.addEventListener('mouseleave', () => gsap.to(img, {scale: 0, duration: 0.5, ease: "power2.in"}));
 });
 
+const links = [
+  "cases/stroitelstvo.html",
+  "cases/production.html",
+  "cases/education.html",
+  "cases/realty.html",
+  "cases/sales.html",
+  "cases/e-commerce.html",
+  "cases/hr-agent.html"
+];
+
 document.querySelectorAll(".services__items-block").forEach((block, i) => {
   block.style.cursor = "pointer";
-  block.onclick = () => location.href = [
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html",
-    "page/stroitelstvo.html"
-  ][i];
+  block.onclick = () => {
+    const tl = playAppearing();
+    tl.eventCallback("onComplete", () => {
+      gsap.delayedCall(.15, () => {
+        location.href = links[i];
+      });
+    });
+  };
 });
 
-gsap.to(".block-img img", {y: "50%", ease: "none", scrollTrigger: {trigger: ".block-img", start: "-100% top", end: "bottom top", scrub: true}});
+// gsap.to(".block-img img", {y: "50%", ease: "none", scrollTrigger: {trigger: ".block-img", start: "-100% top", end: "bottom top", scrub: true}});

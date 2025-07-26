@@ -8,22 +8,27 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptiv.css">
 
-    <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/img/favicon.svg" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Axion ai" />
-    <link rel="manifest" href="/img/site.webmanifest" />
+    <!-- <link rel="manifest" href="/img/site.webmanifest" /> -->
 
     <script src="libs/gsap/gsap.min.js" defer></script>
     <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
     <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     
     <title>Axion AI | Персональный AI для развития вашего дела</title>
 </head>     
 <body>
+
+    <div id="pixelPer"></div>
+
+
     <header class="header">
         <div class="header__container">
             <div class="header__menu">
@@ -50,8 +55,6 @@
                             <path d="M233.39 208L233.72 88.7305" stroke="#DADADA" stroke-miterlimit="10"/>
                             <path d="M130.45 29.3896L233.72 88.7297" stroke="#DADADA" stroke-miterlimit="10"/>
                             </svg>
-
-
                     <!-- <img src="img/logo.svg" alt="Axison — логотип компании" class="header__logo"> -->
                 </a>
 
@@ -69,19 +72,17 @@
                                 <span class="tel__underline"></span>
                             </a>
                         </li>
-                        <li class="header__item header__item--blog">
-                            <a href="#" class="header__link">Блог</a>
-                        </li>
                     </ul>
                 </nav>
             </div>
-            <div class="header__burger">
-                <div class="burger__line"></div>
-                <div class="burger__line"></div>
+            <div class="header__right-block">
+                    <div class="header__cases-block" onclick="casesPreanim()"><span>кейсы</span></div>
+                    <div class="header__blog-block"><span>блог</span></div>
             </div>
         </div>
     </header>
 
+    <div class="sek-per"><div class="block-per-active"></div></div>
 
     <div class="invis">
         <img src="img/textblock-1.jpg" alt="Строительство">
@@ -102,7 +103,7 @@
     <div id="large-header" class="large-header">
         <canvas id="demo-canvas"></canvas>
     </div>
-
+<!-- <img src="img/megamack.jpg" alt="" class="asdasd"> -->
     <main class="main">
         <!-- <div class="background__container" id="background__container"></div> -->
         <section class="hero">
@@ -115,19 +116,19 @@
                     <!-- <div class="hero__line-krug"></div> -->
                     <span class="hero__line-dots"><div class="hero__line-krug "></div><span id="dots">............................</span><div class="hero__line-krug line-krug-right"></div></span>
                 </div>
-                <h1 class="hero__title">ЦИФРОВО<span class="hero__title-span">Е РАЗ</span>ВИТИЕ ВАШЕГО БИЗНЕСА</h1>
-                <p class="hero__description">Osmo появился из постоянного копания в старых проектах с мыслью: «Как же я это тогда сделал?»</p>
+                <h1 class="hero__title">Нанимайте цифровых сотрудников 24/7</h1>
+                <p class="hero__description">Задачи, которые раньше занимали дни, теперь выполняются за минуты. Мы создаем ИИ-сотрудников, которые берут на себя всю рутину, освобождая вашу команду для действительно важных дел.</p>
             </div>
                 <button class="button-request">
                     <span class="button-request__inner">
                         <span class="button-request__wrapper button-request-original">
-                            <span class="button-request__text">ОСТАВИТЬ ЗАЯВКУ</span>
+                            <span class="button-request__text">Ускорить мой бизнес</span>
                             <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-request__icon">
                             <path d="M17.6395 2.00043C17.6395 1.37916 17.0706 0.875516 16.3688 0.875516L4.93291 0.875516C4.23115 0.875516 3.66225 1.37916 3.66225 2.00043C3.66225 2.6217 4.23115 3.12534 4.93291 3.12534L15.0982 3.12534L15.0982 12.1246C15.0982 12.7459 15.6671 13.2496 16.3688 13.2496C17.0706 13.2496 17.6395 12.7459 17.6395 12.1246V2.00043ZM1 15.6064L1.89849 16.4019L17.2673 2.79586L16.3688 2.00043L15.4703 1.205L0.101509 14.811L1 15.6064Z" fill="#0C0C0C"/>
                             </svg>
                         </span>
                         <span class="button-request__wrapper button-request-fake">
-                            <span class="button-request__text">ОСТАВИТЬ ЗАЯВКУ</span>
+                            <span class="button-request__text">Ускорить мой бизнес</span>
                             <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-request__icon">
                             <path d="M17.6395 2.00043C17.6395 1.37916 17.0706 0.875516 16.3688 0.875516L4.93291 0.875516C4.23115 0.875516 3.66225 1.37916 3.66225 2.00043C3.66225 2.6217 4.23115 3.12534 4.93291 3.12534L15.0982 3.12534L15.0982 12.1246C15.0982 12.7459 15.6671 13.2496 16.3688 13.2496C17.0706 13.2496 17.6395 12.7459 17.6395 12.1246V2.00043ZM1 15.6064L1.89849 16.4019L17.2673 2.79586L16.3688 2.00043L15.4703 1.205L0.101509 14.811L1 15.6064Z" fill="#0C0C0C"/>
                             </svg>
@@ -137,7 +138,7 @@
             </div>
         </section>
        <section class="ai-section">
-            <h2 class="ai-section__title" id="ai-section__title">AI — ваш идеальный сотрудник<br>Работает без усталости<br>не ошибается и ускоряет бизнес.</h2>
+            <h2 class="ai-section__title" id="ai-section__title">Почему AI лучше обычного сотрудника?<br>Как цифровые сотрудники<br> ускоряют ваши процессы?</h2>
 
             <div class="ai-section__content">
                 <div class="ai-section__column ai-section__column--visual">
@@ -235,8 +236,8 @@
                 <div class="work-steps__items">
                     <div class="work-steps__item ">
                         <div class="work-steps__item-block">
-                            <h3 class="work-steps__item-title">Анализ бизнес-процесса</h3>
-                            <p class="work-steps__item-text">Определение задач и функционала продукта, формирование ТЗ</p>
+                            <h3 class="work-steps__item-title">Находим "узкие места" (1-2 дня)</h3>
+                            <p class="work-steps__item-text">Мы бесплатно анализируем ваши процессы и находим задачи, автоматизация которых даст максимальное ускорение бизнесу.</p>
                             <span class="work-steps__item-num">01</span>
                         </div>
                     </div>
@@ -251,8 +252,8 @@
                 <div class="work-steps__items">
                     <div class="work-steps__item ">
                         <div class="work-steps__item-block">
-                            <h3 class="work-steps__item-title"><br>Проектирование</h3>
-                            <p class="work-steps__item-text">Создание дизайна, определение архитектуры, выбор технологий</p>
+                            <h3 class="work-steps__item-title">Создаем и настраиваем (5-7 дней)</h3>
+                            <p class="work-steps__item-text">Быстро "собираем" и обучаем цифрового сотрудника, который идеально впишется в вашу работу и будет понимать ее с полуслова.</p>
                             <span class="work-steps__item-num">02</span>
                         </div>
                     </div>
@@ -267,8 +268,8 @@
                 <div class="work-steps__items">
                     <div class="work-steps__item ">
                         <div class="work-steps__item-block">
-                            <h3 class="work-steps__item-title">Разработка и тестирование</h3>
-                            <p class="work-steps__item-text">Производство и откладка согласно требованиям</p>
+                            <h3 class="work-steps__item-title">Проверяем скорость и точность (2 дня)</h3>
+                            <p class="work-steps__item-text">Проводим тест-драйв. Убеждаемся, что новый сотрудник работает как часы и выполняет задачи без сбоев.</p>
                             <span class="work-steps__item-num">03</span>
                         </div>
                     </div>
@@ -283,8 +284,8 @@
                 <div class="work-steps__items">
                     <div class="work-steps__item ">
                         <div class="work-steps__item-block">
-                            <h3 class="work-steps__item-title"><br>Прототипирование</h3>
-                            <p class="work-steps__item-text">Создание интерактивного прототипа и согласование логики</p>
+                            <h3 class="work-steps__item-title">Интегрируем в работу<br>(1 день)</h3>
+                            <p class="work-steps__item-text">Ваш бизнес начинает работать быстрее. Наблюдайте за ростом производительности с первого дня.</p>
                             <span class="work-steps__item-num">04</span>
                         </div>
                     </div>
@@ -386,8 +387,8 @@
         <section class="services">
             <div class="services__container">
                 <div class="services__header">
-                <span class="services__title">виды услуг (7)</span>
-                <span class="services__tag">(AI)</span>
+                <span class="services__title">Отрасли, для которых мы предоставляем решения:</span>
+                <span class="services__tag">(7) </span>
                 </div>
                 <div class="services__list">
                     <div class="services__items-block">
@@ -644,73 +645,73 @@
     </main>
 
      <footer class="footer">
-        <h6 class="footer__title">Подать персональную заявку</h6>
+      <div class="object-container">
+        <div class="object"><p>Готов к росту!</p></div>
+        <div class="object"><p>Связаться</p></div>
+        <div class="object"><p>Запустить рост</p></div>
+        <!-- <div class="object"><p>Да, я хочу ускорить свой бизнес!</p></div> -->
+        <div class="object"><p>Оставить заявку</p></div>
+        <div class="object"><p>Время действовать</p></div>
+        <div class="object"><p>Начать сейчас</p></div>
+        <div class="object"><p>Перейти</p></div> 
+        <div class="object"><p>Ускорить рост</p></div>
+        <!-- <div class="object"><p>Lenis</p></div>
+        <div class="object"><p>React</p></div>
+        <div class="object"><p>Next.js</p></div>
+        <div class="object"><p>WebGL</p></div>
+        <div class="object"><p>Three.js</p></div>
+        <div class="object"><p>Creative Dev</p></div> -->
+      </div>
 
-        <div class="footer__block">
+      <div class="footer-content">
+            <h4 class="footer__title">Готовы ускориться?</h4>
+                <div class="footer__block-mg">
+                    <div class="footer__block">
+                        <p class="footer__text">
+                        Оставьте заявку, и мы бесплатно рассчитаем, сколько именно часов и денег сэкономит ваш бизнес с цифровым сотрудником. Это ни к чему вас не обязывает.
+                        </p>
+                        
+                        <address class="footer__contacts">
+                            <a href="mailto:axison@gmail.com" class="footer__link ft-t footer__link-email" aria-label="Email AXION AI">
+                            axison@gmail.com
+                            <span class="footer__underline footer__underline--email"></span>
+                            </a>
+                            <br>
+                            <a href="tel:+421233112442" class="footer__link ft-t footer__link-num" aria-label="Позвонить AXION AI">
+                            [+421] 233 112 442
+                            <span class="footer__underline footer__underline--phone"></span>
+                            </a>
+                        </address>
+                    </div>
 
-            <div class="footer__column footer__column--info">
-                <p class="footer__text ft-t">
-                    Компания <strong>AXION AI</strong> уважает конфиденциальность своих пользователей и обязуется защищать персональные данные, которые вы предоставляете при использовании сайта. Мы собираем только ту информацию, которую вы добровольно оставляете в формах: имя, адрес электронной почты, название компании и описание задачи.
-                </p>
+                    <div class="footer__block footer__block--cta">
+                        <div class="footer__block--license">
+                            <span class="footer__license">Лицензия на образовательную деятельность № Л035-01271-78/02037422 от 26.03.2025<br><br>© 2023—2025 «Black Mesa IT». Все права защищены</span>
+                        </div>
 
-                <address class="footer__contacts">
-                    <a href="mailto:axison@gmail.com" class="footer__link ft-t footer__link-email" aria-label="Email AXION AI">
-                    axison@gmail.com
-                    <span class="footer__underline footer__underline--email"></span>
-                    </a>
-                    <br>
-                    <a href="tel:+421233112442" class="footer__link ft-t footer__link-num" aria-label="Позвонить AXION AI">
-                    [+421] 233 112 442
-                    <span class="footer__underline footer__underline--phone"></span>
-                    </a>
-                </address>
-
-                <div class="footer__social" aria-label="Социальные сети AXION AI">
-                    <a href="#" class="footer__social-link">
-                    <img src="img/telegram.png" alt="Telegram AXION AI" />
-                    </a>
-                    <a href="#" class="footer__social-link">
-                    <img src="img/viber.png" alt="Viber AXION AI" />
-                    </a>
-                    <a href="#" class="footer__social-link">
-                    <img src="img/instagram.png" alt="Instagram AXION AI" />
-                    </a>
-                </div>  
+                        <div class="footer__block--social" aria-label="Социальные сети AXION AI">
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Telegram">
+                            <img src="../img/telegram.png" alt="Логотип Telegram" class="footer__social-icon">
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Viber">
+                            <img src="../img/viber.png" alt="Логотип Viber" class="footer__social-icon">
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Instagram">
+                            <img src="../img/instagram.png" alt="Логотип Instagram" class="footer__social-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="footer__column footer__column--form">
-                <form action="/submit-form" method="POST" class="footer__form" aria-label="Форма персональной заявки">
-                    <label for="footer-name" class="footer__label">Имя:</label>
-                    <input id="footer-name" name="name" class="footer__input" required>
-                    <label for="footer-email" class="footer__label">Email:</label>
-                    <input id="footer-email" type="email" name="email" class="footer__input" required>
-                    <label for="footer-task" class="footer__label">Описание задачи:</label>
-                    <textarea id="footer-task" name="task" class="footer__input footer__input-big" required placeholder="Написать сообщение..."></textarea>
-                </form>
-            </div>
-
-
-            <div class="footer__column footer__column--license">
-            <p class="footer__license ft-t">Лицензия на образовательную деятельность № Л035-01271-78/02037422 от 26.03.2025<br><br>© 2023—2025 <strong>Black Mesa IT</strong>. Все права защищены.</p>
-                <button type="submit" form="form" class="footer__button button-request">
-                    <span class="button-request__inner">
-                        <span class="button-request__wrapper button-request-original">
-                            <span class="button-request__text">ОТПРАВИТЬ</span>
-                        </span>
-                        <span class="button-request__wrapper button-request-fake">
-                            <span class="button-request__text">ОТПРАВИТЬ</span>
-                        </span>
-                    </span>
-                </button>
-            </div>
-
-        </div>
     </footer>
+
+
     <div style="height: 10vh"></div>
     </div>
 </div>
 
 <script src="js/script.js" defer></script>
+<script src="js/services.js" defer></script>
 <script src="js/header.js" defer></script>
 <script src="js/scroll.js" defer></script>
 <script src="js/hero.js" defer></script>
@@ -719,7 +720,6 @@
 <script src="js/about__sect.js" defer></script>
 <script src="js/team.js" defer></script>
 <script src="js/footer.js" defer></script>
-<script src="js/services.js" defer></script>
 <script src="js/reviews.js" defer></script>
 
 

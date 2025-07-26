@@ -48,16 +48,16 @@ gsap.utils.toArray(".button-request").forEach((btn) => {
   });
 });
 
-gsap.to("#large-header", {
-  scrollTrigger: {
-    trigger: "#large-header",
-    start: "top top",
-    end: "+=131223",
-    scrub: true,
-    pin: true,
-    pinSpacing: false
-  }
-});
+// gsap.to("#large-header", {
+//   scrollTrigger: {
+//     trigger: "#large-header",
+//     start: "top top",
+//     end: "+=131223",
+//     scrub: true,
+//     pin: true,
+//     pinSpacing: false
+//   }
+// });
 
 
 
@@ -108,132 +108,46 @@ class SimplexNoise {
   }
 }
 
-(function(){
-  const canvas     = document.getElementById('demo-canvas'),
-        ctx        = canvas.getContext('2d'),
-        noise      = new SimplexNoise(),
-        COLS       = 10,
-        ROWS       = 5,
-        BASE_COLOR = 'rgba(200,200,200,0.03)',
-        BLINK_COLOR= 'rgba(255,210,216,0.07)',
-        INTERACT_R = 600,
-        NODE_R     = 5,
-        // Реже мигаем
-        BLINK_RATE = 0.005;
 
-  let W, H, nodes, links, t = 0,
-      target = { x: -1e4, y: -1e4 };
 
-  window.addEventListener('mousemove', e => {
-    target.x = e.clientX;
-    target.y = e.clientY;
+
+
+
+function createAppearingGrid(containerId) {
+  const w = document.getElementById(containerId),
+        c = 40,
+        s = innerWidth * 0.025,
+        r = Math.ceil(w.clientHeight / s);
+  Object.assign(w.style, {
+    display: "grid",
+    gridTemplateColumns: `repeat(${c}, 2.5vw)`,
+    gridAutoRows: "2.5vw"
   });
-  window.addEventListener('resize', init);
-  init();
+  Array.from({ length: c * r }).forEach(() =>
+    w.insertAdjacentHTML('beforeend', '<div class="pixelPer"></div>')
+  );
 
-  function init(){
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-
-    nodes = [];
-    for (let i = 0; i <= COLS; i++) {
-      for (let j = 0; j <= ROWS; j++) {
-        nodes.push({
-          x: i * (W / COLS) + (Math.random() - 0.5) * 40,
-          y: j * (H / ROWS) + (Math.random() - 0.5) * 40
-        });
-      }
-    }
-
-    links = [];
-    nodes.forEach((n, i) => {
-      const others = nodes.slice();
-      others.splice(i, 1);
-      others.sort((a, b) =>
-        ((n.x - a.x) ** 2 + (n.y - a.y) ** 2) -
-        ((n.x - b.x) ** 2 + (n.y - b.y) ** 2)
-      );
-      for (let k = 0; k < 2; k++) {
-        links.push({ a: n, b: others[k] });
-      }
-    });
-
-    animate();
+  const pixels = [...w.children];
+  const shuffled = gsap.utils.shuffle(pixels);
+  const groups = [];
+  let i = 0;
+  while (i < shuffled.length) {
+    const groupSize = gsap.utils.random(35, 50, 5);
+    groups.push(shuffled.slice(i, i + groupSize));
+    i += groupSize;
   }
+  pixels.forEach(pixel => pixel.style.opacity = 0);
+  const tl = gsap.timeline({ paused: true });
+  groups.forEach((group, index) => {
+    tl.to(group, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power1.out"
+    }, index * 0.04);
+  });
+  return () => tl.play();
+}
+const playAppearing = createAppearingGrid("pixelPer");
 
-  function animate(){
-    t += 0.003;
-    ctx.clearRect(0, 0, W, H);
 
-    // ореол вокруг курсора
-    if (target.x > -1e3) {
-      const g = ctx.createRadialGradient(
-        target.x, target.y, 0,
-        target.x, target.y, INTERACT_R
-      );
-      g.addColorStop(0, 'rgba(255,210,216,0.0)');
-      g.addColorStop(1, 'rgba(255,210,216,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, H);
-    }
 
-    // фоновые кривые с редким и более крупным мерцанием
-    links.forEach(l => {
-      const mx  = (l.a.x + l.b.x) / 2,
-            my  = (l.a.y + l.b.y) / 2,
-            off = noise.noise2D(mx * 0.005, my * 0.005 + t) * 0.4;
-
-      ctx.beginPath();
-      ctx.moveTo(l.a.x, l.a.y);
-      ctx.quadraticCurveTo(mx + off, my + off, l.b.x, l.b.y);
-
-      if (Math.random() < BLINK_RATE) {
-        ctx.strokeStyle = BLINK_COLOR;
-        ctx.lineWidth   = 1.5; // толще для «блика»
-      } else {
-        ctx.strokeStyle = BASE_COLOR;
-        ctx.lineWidth   = 0.8;
-      }
-      ctx.stroke();
-    });
-
-    // активные узлы и их связи
-    const active = nodes.filter(n =>
-      Math.hypot(n.x - target.x, n.y - target.y) < INTERACT_R
-    );
-
-    ctx.strokeStyle = BLINK_COLOR;
-    ctx.lineWidth   = 1.2;
-    active.forEach((n, i) => {
-      // к курсору
-      ctx.beginPath();
-      ctx.moveTo(n.x, n.y);
-      ctx.lineTo(target.x, target.y);
-      ctx.stroke();
-
-      // между собой
-      const others = active.slice();
-      others.splice(i, 1);
-      others.sort((a, b) =>
-        ((n.x - a.x) ** 2 + (n.y - a.y) ** 2) -
-        ((n.x - b.x) ** 2 + (n.y - b.y) ** 2)
-      );
-      others.slice(0, 2).forEach(m => {
-        ctx.beginPath();
-        ctx.moveTo(n.x, n.y);
-        ctx.lineTo(m.x, m.y);
-        ctx.stroke();
-      });
-    });
-
-    // рисуем узлы
-    nodes.forEach(n => {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, NODE_R, 0, 2 * Math.PI);
-      ctx.fillStyle = BASE_COLOR;
-      ctx.fill();
-    });
-
-    requestAnimationFrame(animate);
-  }
-})();
