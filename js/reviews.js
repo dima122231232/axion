@@ -24,7 +24,7 @@ fetch('https://backend.xoplatform.de/api:US7WAq3I/review')
     anim.items.forEach(item => track.appendChild(item.cloneNode(true)));
     setup();
 
-    gsap.fromTo(".footer",{ y: -0.7 * vh },{y: .3 * vh,ease: "none",scrollTrigger: {trigger: ".reviews",
+    gsap.fromTo(".footer",{ y: -0.6 * vh },{y: .4 * vh,ease: "none",scrollTrigger: {trigger: ".reviews",
         start: () => `bottom+=${0.1 * vh} bottom`,
         end: () => `+=${1 * vh}`,scrub: true,invalidateOnRefresh: true }});
     // gsap.fromTo(".footer",{ filter: "grayscale(100%) blur(10px)"}, { filter: "grayscale(0%) blur(0px)",ease:"none", scrollTrigger: { trigger: ".reviews", start: () => `bottom+=${.1 * vh} bottom`,end: () => `+=${.7 * vh}`, scrub: true,invalidateOnRefresh: true  }});
