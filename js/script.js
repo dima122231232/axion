@@ -5,7 +5,7 @@ var anim = CustomEase.create("custom", "M0,0 C.7,0 .3,1 1,1");
 
 const vh       = window.innerHeight,
       vw       = window.innerWidth,
-      isMobile = vw < 769,
+      isMobile = window.matchMedia("(max-width: 768px)");
       offsetVw = getComputedStyle(document.documentElement).getPropertyValue('--offset-vw').trim(),
       offsetPx = parseFloat(offsetVw) * vw / 100;
 

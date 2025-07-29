@@ -1,6 +1,6 @@
 const classes = ['ai-section__heading', 'ai-section__heading--human', 'ai-section__heading--ai'];
 
-if(!isMobile){
+if(!isMobile.matches){
   document.querySelectorAll('.ai-section__content').forEach(section => {
     classes.forEach(className => {
       const element = section.querySelector(`.${className}`);

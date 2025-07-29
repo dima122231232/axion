@@ -3,7 +3,7 @@
 //   el.addEventListener('mouseleave', () => gsap.to(el, {backgroundColor: 'unset', color: '#fff', duration: .5}));
 // });
 
-if(!isMobile){
+if(!isMobile.matches){
 //   const c2 = document.getElementById('background__container-manage');
 //   for(let i = 0; i < 400; i++){
 //     const s = document.createElement('div');

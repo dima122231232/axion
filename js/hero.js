@@ -1,7 +1,6 @@
-if (!isMobile){
-  gsap.fromTo(".promo__video", { scale: .3, rotate: -5, y: "-10vw" }, { scale: 1, y: "100vh", rotate: 0, scrollTrigger: { trigger: ".hero", start: "top top", end: "center top", scrub: true } });
-}
 window.addEventListener("load", () => {
+
+    if (!isMobile.matches){gsap.fromTo(".promo__video", { scale: .3, rotate: -5, y: "-10vw" }, { scale: 1, y: "100vh", rotate: 0, scrollTrigger: { trigger: ".hero", start: "top top", end: "center top", scrub: true } });}
 //   const c = document.getElementById('background__container');
 //   for (let i = 0; i < 400; i++) {
 //     const s = document.createElement('div');
@@ -35,7 +34,7 @@ window.addEventListener("scroll", () => {
 });
 
 
-if (!isMobile){
+if (!isMobile.matches){
 gsap.timeline()
   .to(".block-per-active", {
     height: 0,

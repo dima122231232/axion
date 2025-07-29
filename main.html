@@ -1,217 +1,728 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of programmer and designer Matiushenko Dmytro Programistic">
-    <meta name="robots" content="index, follow">
-
-    <link rel="icon" type="image/x-icon" href="img/ic.jpg">
+    <meta name="description" content="Axion AI — интеллектуальный AI-агент, который адаптируется под ваш бизнес, автоматизирует процессы и помогает расти. Персональные AI-решения для эффективного развития компании.">
+    <meta name="keywords" content="AI агент, искусственный интеллект, автоматизация бизнеса, AI решения, развитие бизнеса, персональный AI, Axion AI">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/adaptiv.css">
 
-    <script src="libs/gsap/gsap.min.js"></script>
-    <script src="libs/gsap/ScrollTrigger.min.js"></script>
-    <script src="libs/gsap/ScrollSmoother.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    <title>Portfolio</title>
-</head>
+    <!-- <link rel="icon" type="image/png" href="/img/favicon.svg" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Axion ai" /> -->
+    <!-- <link rel="manifest" href="/img/site.webmanifest" /> -->
+
+    <script src="libs/gsap/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CustomEase.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+    <title>Axion AI | Персональный AI для развития вашего дела</title>
+</head>     
 <body>
-    <header>
-        <div class="header__block">
-            <div class="header_button">
-                <div class="hd_button1">i am free</div>
-                <div class="hd_button2"></div>
+
+    <div id="pixelPer"></div>
+
+
+    <header class="header">
+        <div class="header__container">
+            <div class="header__menu">
+                <a href="#" class="header__logo-link">
+                    <!-- <span>AXSION AI</span> -->
+                       <svg width="261" height="298" viewBox="0 0 261 298" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Axison — логотип компании" class="header__logo">
+                            <path d="M260.36 80.9699C260.36 76.3699 257.91 72.1199 253.92 69.8199L136.89 2.22988C132.91 -0.0701172 128 -0.0701172 124.01 2.22988L6.96 69.7799C2.98 72.0799 0.52 76.3299 0.52 80.9299L0.5 216.08C0.5 220.68 2.95 224.93 6.94 227.23L123.97 294.82C127.95 297.12 132.86 297.12 136.85 294.82L253.9 227.27C257.88 224.97 260.34 220.72 260.34 216.12L260.36 80.9699ZM130.41 238.58L52.42 193.54L52.44 103.48L130.44 58.4599L208.43 103.5L208.41 193.56L130.41 238.58Z" fill="white" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 238.58V296.52" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M2.28003 222.46L52.43 193.54" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M258.5 222.53L208.42 193.57" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 58.4701V0.330078" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M208.43 103.511L258.32 74.0205" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M2.12012 74.5996L52.4501 103.48" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M26.8 88.7705L52.1301 103.301" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M208.44 103.33L233.72 88.7305" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 29.3896V58.5396" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M26.8 88.7696L130.45 29.3896" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M52.6401 193.4L27.3501 208" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M208.1 193.4L233.39 208" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 267.72V238.58" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M27.35 208.001L26.8 88.7705" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 267.72L27.3501 208" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 267.72L233.39 208" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M233.39 208L233.72 88.7305" stroke="#DADADA" stroke-miterlimit="10"/>
+                            <path d="M130.45 29.3896L233.72 88.7297" stroke="#DADADA" stroke-miterlimit="10"/>
+                            </svg>
+                    <!-- <img src="img/logo.svg" alt="Axison — логотип компании" class="header__logo"> -->
+                </a>
+
+                <nav class="header__nav">
+                    <ul class="header__list">
+                        <li class="header__item">
+                            <a href="mailto:axison@gmail.com" class="header__link">
+                                axison@gmail.com
+                                <span class="gmail__underline"></span>
+                            </a>
+                        </li>
+                        <li class="header__item">
+                            <a href="tel:+421233112442" class="header__link">
+                                [+421] 233 112 442
+                                <span class="tel__underline"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-            <div class="burger" onclick="headerClick()">
-                <div class="pl_burger"></div>
-                <div class="pl_burger"></div>
-                <div class="pl_burger"></div>
+            <div class="header__right-block">
+                    <div class="header__cases-block" onclick="casesPreanim()"><span>кейсы</span></div>
+                    <div class="header__blog-block"><span>блог</span></div>
             </div>
         </div>
-        <div class="str"><nav class="burger-content" aria-label="Main Navigation">
-            <h6 class="h6-nav">Navigation</h6>
-            <div class="burger__polosa-top"></div>
-            <div class="burger__home-div">
-                <div class="burger__home-but">Home</div>
-                <div class="bodka-home"></div>
-            </div>
-            <div class="burger__contact-div">
-                <div class="burger__contact-but">Contact</div>
-                <div class="bodka-contact"></div>
-            </div>
-            <div class="bottom-burger">
-                <div class="burger__polosa-bottom"></div>
-                <div class="soz-burger">
-                    <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="soz">Instagram</a>
-                    <a href="https://t.me/programisticc" target="_blank" rel="noopener noreferrer" class="soz">Telegram</a>
-                </div>
-            </div>
-        </nav></div>
-        <div class="fr"><div class="burger-str "><div class="dob-str"></div></div></div>
     </header>
-<div id="wrapper" class="wrapper">
-    <div id="content" >
-        <main>
-            <section class="section1">
-                <div class="full__img-sek1">
-                    <img src="img/main1.png" alt="" class="sec_photo1 main_photo">
-                    <img src="img/main2.png" alt="" class="sec_photo2 main_photo">
-                    <img src="img/main3.png" alt="" class="sec_photo3 main_photo">
-                    <img src="img/main4.png" alt="" class="sec_photo4 main_photo">
-                    <img src="img/main5.png" alt="" class="sec_photo5 ">
-                    <img src="img/main6.png" alt="" class="sec_photo6 main_photo">
-                    <img src="img/main7.png" alt="" class="sec_photo7 main_photo">
+
+    <div class="sek-per"><div class="block-per-active"></div></div>
+
+    <div class="invis">
+        <img src="img/textblock-1.jpg" alt="Строительство">
+        <img src="img/textblock-2.jpg" alt="Производство">
+        <img src="img/textblock-3.jpg" alt="Образование">
+        <img src="img/textblock-4.jpg" alt="Недвижимость">
+        <img src="img/textblock-5.jpg" alt="Продажи">
+        <img src="img/textblock-6.jpg" alt="E-commerce">
+        <img src="img/textblock-7.jpg" alt="HR агентство">
+    </div>
+
+
+
+
+<div id="wrapper">
+    <div id="content">
+    
+    <div id="large-header" class="large-header">
+        <canvas id="demo-canvas"></canvas>
+    </div>
+<!-- <img src="img/megamack.jpg" alt="" class="asdasd"> -->
+    <main class="main">
+        <!-- <div class="background__container" id="background__container"></div> -->
+        <section class="hero">
+        <div style="height: 100vh;display: flex;align-items: center;position: relative;" class="hero__plus">
+            <video class="promo__video" autoplay muted loop playsinline><source src="video/video-best.mp4" type="video/mp4" loading="lazy"/>
+                Ваш браузер не поддерживает видео.
+            </video>
+            <div class="hero__content">
+                <div class="hero__line">
+                    <!-- <div class="hero__line-krug"></div> -->
+                    <span class="hero__line-dots"><div class="hero__line-krug "></div><span id="dots">............................</span><div class="hero__line-krug line-krug-right"></div></span>
                 </div>
-                <div class="marquee">
-                    <div class="marquee-content">
+                <h1 class="hero__title">Нанимайте цифровых сотрудников 24/7</h1>
+                <p class="hero__description">Задачи, которые раньше занимали дни, теперь выполняются за минуты. Мы создаем ИИ-сотрудников, которые берут на себя всю рутину, освобождая вашу команду для действительно важных дел.</p>
+            </div>
+                <button class="button-request">
+                    <span class="button-request__inner">
+                        <span class="button-request__wrapper button-request-original">
+                            <span class="button-request__text">Ускорить мой бизнес</span>
+                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-request__icon">
+                            <path d="M17.6395 2.00043C17.6395 1.37916 17.0706 0.875516 16.3688 0.875516L4.93291 0.875516C4.23115 0.875516 3.66225 1.37916 3.66225 2.00043C3.66225 2.6217 4.23115 3.12534 4.93291 3.12534L15.0982 3.12534L15.0982 12.1246C15.0982 12.7459 15.6671 13.2496 16.3688 13.2496C17.0706 13.2496 17.6395 12.7459 17.6395 12.1246V2.00043ZM1 15.6064L1.89849 16.4019L17.2673 2.79586L16.3688 2.00043L15.4703 1.205L0.101509 14.811L1 15.6064Z" fill="#0C0C0C"/>
+                            </svg>
+                        </span>
+                        <span class="button-request__wrapper button-request-fake">
+                            <span class="button-request__text">Ускорить мой бизнес</span>
+                            <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-request__icon">
+                            <path d="M17.6395 2.00043C17.6395 1.37916 17.0706 0.875516 16.3688 0.875516L4.93291 0.875516C4.23115 0.875516 3.66225 1.37916 3.66225 2.00043C3.66225 2.6217 4.23115 3.12534 4.93291 3.12534L15.0982 3.12534L15.0982 12.1246C15.0982 12.7459 15.6671 13.2496 16.3688 13.2496C17.0706 13.2496 17.6395 12.7459 17.6395 12.1246V2.00043ZM1 15.6064L1.89849 16.4019L17.2673 2.79586L16.3688 2.00043L15.4703 1.205L0.101509 14.811L1 15.6064Z" fill="#0C0C0C"/>
+                            </svg>
+                        </span>
+                    </span>
+                </button>
+            </div>
+        </section>
+       <section class="ai-section">
+            <h2 class="ai-section__title" id="ai-section__title">Почему AI лучше обычного сотрудника?<br>Как цифровые сотрудники<br> ускоряют ваши процессы?</h2>
+
+            <div class="ai-section__content">
+                <div class="ai-section__column ai-section__column--visual">
+                    <div class="ai-section__heading">
+                        <div class="ai-section__visual"><span>00</span><span class="ai-section__visual-table">счет</span><span class="ai-section__visual--num">00</span></div>
                     </div>
-                  </div>
-            </section>
-            <div class="rounded-div-wrap"><div class="rounded-div"></div></div>
-            <section class="section2 gradient-bg">
-                <div class="gradients-container">
-                    <div class="g1"></div>
-                    <div class="g2"></div>
-                    <div class="g3"></div>
-                  </div>
-                <div class="block__text-sect2 b_t1 " >
-                    <h4 class="animate-text anim-h4 anim1">First Step</h4>
-                    <p class="animate-text anim1">I am a designer and programmer who initially wanted to create animated, visually appealing websites. That’s why I started by learning cutting-edge technologies and got seriously into programming in 2017. For a long time, I didn’t work officially but focused on refining my skills because I’ve always valued quality work. I only recently started working professionally, but I already have significant experience in development and understand how to create truly great projects.</p>
-                </div>
-                <div class="block__text-sect2-fake b_t1-fake">
-                    <h4 class="animate_text-fake anim-h4-fake anim1-fake">First Step</h4>
-                    <p class="animate_text-fake anim1-fake">I am a designer and programmer who initially wanted to create animated, visually appealing websites. That’s why I started by learning cutting-edge technologies and got seriously into programming in 2017. For a long time, I didn’t work officially but focused on refining my skills because I’ve always valued quality work. I only recently started working professionally, but I already have significant experience in development and understand how to create truly great projects</p>
-                </div>
-
-                <div class="block__text-sect2 b_t11 " >
-                    <h4 class="anim11 anim-h41">First Step</h4>
-                    <p class="anim11">I am a designer and programmer who initially wanted to create animated, visually appealing websites. That’s why I started by learning cutting-edge technologies and got seriously into programming in 2017. For a long time, I didn’t work officially but focused on refining my skills because I’ve always valued quality work. I only recently started working professionally, but I already have significant experience in development and understand how to create truly great projects</p>
-                </div>
-
-                <div class="block__text-sect2 b_t2">
-                    <h4 class="animate-text anim-h4 am2">Secound Step</h4>
-                    <p class="animate-text am2">Right now, I’m 18 years old and constantly improving to build even better websites. I have experience working with the Toolkit team (4 months) and the PSTS team (6 months), which specializes in website development. I’ve also completed orders on Upwork, but I mainly gained experience by learning independently—reading, analyzing, and building projects. I believe I can handle 95% of frontend tasks, except for complex 3D graphics, as I am still in the process of mastering them</p>
-                </div>
-
-                <div class="block__text-sect2 b_t3">
-                    <h4 class="animate-text anim-h4 am3">Third Step</h4>
-                    <p class="animate-text am3">My frontend skills are at a very high level, and I’m confident in my abilities. In addition, I have a decent understanding of backend development, though I mostly work on single-page projects, which means I don’t practice server-side coding as often. I also have a strong grasp of algorithms, which helps me write more efficient code. I pay special attention to SEO, cross-browser compatibility, and responsiveness. I am well-versed in minification, load optimization, and other key techniques to enhance website performance</p>
-                </div>
-   
-
-                <div class="block__text-sect2 b_t4">
-                    <h4 class="animate-text anim-h4 am4">Third Step</h4>
-                    <p class="animate-text am4">I am always evolving and never stop improving. For me, it’s not just about creating a website—it’s about making it user-friendly, fast, and visually impressive. I believe that high-quality work speaks for itself, which is why I always strive for excellence, continuously learning and refining my skills in design, animation, and programming</p>
-                </div>
-   
-              
-                <div class="polosa_set2">
-                    <div class="min__polosa-set2">
-                        <div class="macro__polosa-set2"></div>
+                    <div class="ai-section__text-group ai-section__text-group--sr">
+                        <p class="ai-section__text active">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
+                        <p class="ai-section__text">СРАВНЕНИЕ</p>
                     </div>
                 </div>
-            </section>
-            <section class="section3">
-                <div class="Comments-h2">
-                    <div class="Comments__item-h2 "><span>Comments on my</span></div>
-                    <div class="Comments__item-h2 "><span>work and projects</span></div>
-                </div>
-                <div class="block__comments">
-                    <div class="block__comments-item">
-                        <img src="img/photo_peple1.png" alt="people" class="comments__items-img">
-                        <div class="bk__new"><h6 class="name__comments bk_new1">Event host</h6></div>
-                        <div class="adaptiv-history"><div class="history__comments history__comm1"><div><span>Highly skilled event host with many</span></div> <div><span>years of experience in the industry,</span></div> <div><span>covering various formats and</span></div> <div><span>scales.</span></div></div></div>
+
+                <div class="ai-section__column ai-section__column--human">
+                    <div class="ai-section__heading ai-section__heading--human">
+                        <img class="ai-section__image-icon" src="img/profile.png" alt="Иконка работника офиса">
+                        <h1 class="ai-section__heading-title">Работник офиса сотрудник, фрилансер</h1>
                     </div>
-
-                    <div class="block__comments-item">
-                        <img src="img/photo_peple2.png" alt="people" class="comments__items-img">
-                        <div class="bk__new "><h6 class="name__comments bk_new2">Radio Director</h6></div>
-                        <div class="adaptiv-history"><div class="history__comments history__comm2"><div><span>An experienced leader with a rich</span></div> <div><span>background in the radio industry.</span></div> <div><span>As a radio station director, he</span></div> <div><span>managed brand development,</span></div> <div><span>oversaw programming, and led</span></div> <div><span>marketing strategies.</span></div></div></div>
+                    
+                    <div class="ai-section__text-group ai-section__text-group--human">
+                        <p class="ai-section__text active">Работает 8 часов в день</p>
+                        <p class="ai-section__text">Может допускать ошибки</p>
+                        <p class="ai-section__text">Требует постоянного обучения</p>
+                        <p class="ai-section__text">Получает зарплату, отпуска</p>
+                        <p class="ai-section__text">Ограничен по скорости</p>
+                        <p class="ai-section__text">Эмоционально реагирует</p>
+                        <p class="ai-section__text">Может уставать</p>
+                        <p class="ai-section__text">Требует времени на адаптацию</p>
+                        <p class="ai-section__text">Ограничен опытом</p>
+                        <p class="ai-section__text">Может быть предвзят</p>
+                        <p class="ai-section__text">Медленно выполняетзадачи</p>
+                        <p class="ai-section__text">Нуждается в мотивации</p>
+                        <p class="ai-section__text">Подвержен стрессу</p>
+                        <p class="ai-section__text">Иногда забывает детали</p>
+                        <p class="ai-section__text">Ошибается при многозадачности</p>
+                        <p class="ai-section__text">Зависит от настроения</p>
+                        <p class="ai-section__text">Затрудняется с анализом данных</p>
+                        <p class="ai-section__text">Может конфликтовать в коллективе</p>
+                        <p class="ai-section__text">Ограничен рабочим местом</p>
+                        <p class="ai-section__text">Может опоздать</p>
                     </div>
-
-                    <div class="block__comments-item">
-                        <img src="img/photo_peple3.png" alt="people" class="comments__items-img">
-                        <div class="bk__new "><h6 class="name__comments bk_new3">Сlient</h6></div>
-                        <div class="adaptiv-history"><div class="history__comments history__comm3"><div><span>A client for whom I completed</span></div> <div><span>two orders was satisfied</span></div> <div><span>gave a tip, and through him,</span></div> <div><span>I connected with</span></div> <div><span>Evgeny Kozhukhov</span></div> <div><span>He also left a review</span></div></div></div>
-                    </div>  
                 </div>
 
-                <div class="audio-player">
-                    <audio id="audio" src="audio/true jackson (mp3cut.net).mp3"></audio>
-                    <button id="play-pause" class="play-pause">
-                      <img src="img/play-button-arrowhead.png" class="play-pause__img-tr" alt="button-play">
-                      <img src="img/play-button-pause.png" class="play-pause__img-tr-pause" alt="button-play">
-                    </button>
-                    <div class="block__audio-panel">
-                      <button id="prev">
-                        <img src="img/play-button-arrow.png" alt="arrow" class="arrow-next ar-pr">
-                      </button>
-                      <div class="seek-container">
-                        <div id="progress-bar"></div>
-                      </div>
-                      <button id="next">
-                        <img src="img/play-button-arrow.png" alt="arrow" class="arrow-next ar-nt" >
-                      </button>
+                <div class="ai-section__column ai-section__column--ai">
+                    <div class="ai-section__heading ai-section__heading--ai">
+                        <img class="ai-section__image-icon" src="img/future.png" alt="Иконка ai">
+                        <h1 class="ai-section__heading-title">Искусственный интеллект, Нейросеть</h1>
                     </div>
-                  </div>
-                  
-                  
-
-            </section>
-            <section class="section4">
-                <img src="img/sek4-1.jpg" alt="" class="sek4-img sek4-1">
-                <img src="img/sek4-2.jpg" alt="" class="sek4-img sek4-2">
-                <img src="img/sek4-3.jpg" alt="" class="sek4-img sek4-3">
-                <img src="img/sek4-4.jpg" alt="" class="sek4-img sek4-4">
-                <img src="img/sek4-5.jpg" alt="" class="sek4-img sek4-5">
-                <img src="img/sek4-6.jpg" alt="" class="sek4-img sek4-6">
-                <img src="img/sek4-7.jpg" alt="" class="sek4-img sek4-7">
-
-                <div class="section4__div-text">Despite all the challenges and obstacles, I truly enjoy what I do. Each project helps me grow and develop. I’m proud of my achievements and want to keep moving forward, improving. I believe in continuous learning and adapting to new trends and technologies. If you're looking for a reliable partner who is dedicated and passionate about delivering high-quality results, I’d be happy to help you bring your ideas and projects to life! Let's create something great together and make your vision a reality.</div>
-                <div class="sek4__img2-block">
-                    <img src="img/sek4-3.jpg" alt="" class="sek4-img2 sek4__2-3">
-                    <img src="img/sek4-4.jpg" alt="" class="sek4-img2 sek4__2-4">
-                    <img src="img/sek4-5.jpg" alt="" class="sek4-img2 sek4__2-5">
-                    <img src="img/sek4-1.jpg" alt="" class="sek4-img2 sek4__2-1">
-                    <img src="img/sek4-7.jpg" alt="" class="sek4-img2 sek4__2-7">
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="footer__block">
-                <div class="footer-h"><div><span class="ft__span1">Let’s work</span></div><div><span class="ft__span2">together</span></div></div>
-                <div class="polosa_footer"></div>
-                <div class="free_div">
-                    <div class="free-text">I am <br>free</div>
-                    <div class="free-indicator"></div>
-                </div>
-                <div class="button-ft">
-                    <div>
-                        <a href="https://t.me/programisticc" target="_blank" class="button-ft-tel">
-                            <span class="button__spotlight"></span>
-                            <span class="button__wrapper"><span class="button__text">telegram</span></span>
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=dimokmilok46@gmail.com" target="_blank" class="button-ft-em">
-                            <span class="button__spotlight2"></span>
-                            <span class="button__wrapper2"><span class="button__text2">email</span></span>
-                        </a>
+                    <div class="ai-section__text-group ai-section__text-group--ai">
+                        <p class="ai-section__text active">Работает 24/7 без выходных</p>
+                        <p class="ai-section__text">Точность до 99%</p>
+                        <p class="ai-section__text">Самообучается на основе данных</p>
+                        <p class="ai-section__text">Одна настройка — и работает</p>
+                        <p class="ai-section__text">Обрабатывает данные за секунды</p>
+                        <p class="ai-section__text">Беспристрастный и логичный</p>
+                        <p class="ai-section__text">Не знает усталости</p>
+                        <p class="ai-section__text">Быстро масштабируется</p>
+                        <p class="ai-section__text">Доступ ко всем базам знаний</p>
+                        <p class="ai-section__text">Решения основаны на данных</p>
+                        <p class="ai-section__text">Мгновенно обрабатывает рутину</p>
+                        <p class="ai-section__text">Не требует мотивации</p>
+                        <p class="ai-section__text">Не подвержен стрессу</p>
+                        <p class="ai-section__text">Всегда сохраняет данные</p>
+                        <p class="ai-section__text">Справляется с многозадачностью</p>
+                        <p class="ai-section__text">Не зависит от настроения</p>
+                        <p class="ai-section__text">Анализирует большие информации</p>
+                        <p class="ai-section__text">Не участвует в конфликтах</p>
+                        <p class="ai-section__text">Может работать из любой точки</p>
+                        <p class="ai-section__text">Никогда не опаздывает</p>
                     </div>
                 </div>
             </div>
-        </footer>
-        <section class="fake" style="height: 25vh; background-color: #000; transform: translateY(-1px);"></section>
+        </section>
+
+        <section class="work-steps" aria-labelledby="work-steps__title">
+           <h2 class="work-steps-h2">ЭТАПЫ<br>РАБОТЫ</h2>
+           <div class="work-steps__content">
+                <div class="work-steps__items">
+                    <div class="work-steps__item ">
+                        <div class="work-steps__item-block">
+                            <h3 class="work-steps__item-title">Находим "узкие места" (1-2 дня)</h3>
+                            <p class="work-steps__item-text">Мы бесплатно анализируем ваши процессы и находим задачи, автоматизация которых даст максимальное ускорение бизнесу.</p>
+                            <span class="work-steps__item-num">01</span>
+                        </div>
+                    </div>
+                <div class="work__block-blur">
+                    <div class="color-1"></div>
+                    <div class="color-2"></div>
+                    <div class="color-3"></div>
+                    <div class="color-4"></div>
+                    <div class="color-5"></div>
+                </div>
+                </div>
+                <div class="work-steps__items">
+                    <div class="work-steps__item ">
+                        <div class="work-steps__item-block">
+                            <h3 class="work-steps__item-title">Создаем и настраиваем (5-7 дней)</h3>
+                            <p class="work-steps__item-text">Быстро "собираем" и обучаем цифрового сотрудника, который идеально впишется в вашу работу и будет понимать ее с полуслова.</p>
+                            <span class="work-steps__item-num">02</span>
+                        </div>
+                    </div>
+                    <div class="work__block-blur">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                        <div class="color-5"></div>
+                    </div>
+                </div>
+                <div class="work-steps__items">
+                    <div class="work-steps__item ">
+                        <div class="work-steps__item-block">
+                            <h3 class="work-steps__item-title">Проверяем скорость и точность (2 дня)</h3>
+                            <p class="work-steps__item-text">Проводим тест-драйв. Убеждаемся, что новый сотрудник работает как часы и выполняет задачи без сбоев.</p>
+                            <span class="work-steps__item-num">03</span>
+                        </div>
+                    </div>
+                    <div class="work__block-blur">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                        <div class="color-5"></div>
+                    </div>
+                </div>
+                <div class="work-steps__items">
+                    <div class="work-steps__item ">
+                        <div class="work-steps__item-block">
+                            <h3 class="work-steps__item-title">Интегрируем в работу<br>(1 день)</h3>
+                            <p class="work-steps__item-text">Ваш бизнес начинает работать быстрее. Наблюдайте за ростом производительности с первого дня.</p>
+                            <span class="work-steps__item-num">04</span>
+                        </div>
+                    </div>
+                    <div class="work__block-blur">
+                        <div class="color-1"></div>
+                        <div class="color-2"></div>
+                        <div class="color-3"></div>
+                        <div class="color-4"></div>
+                        <div class="color-5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="about__block about__block--why">
+                <article class="about__section about__first-block white-anim">
+                <h2 class="about__title h2__title about_bl-ef">Почему<br>мы?</h2>
+                <!-- <p class="about__subtitle" style="font-weight: 500;">
+                    Osmo появился из постоянного
+                </p> -->
+                </article>
+
+                <article class="about__section about__section--info white-anim">
+                <div class="about__subsection">
+                    <h3 class="about__subtitle about_bl-ef">О нас</h3>
+                    <p class="about__text about_bl-ef">
+                    Мы — команда профессионалов, специализирующихся на разработке кастомных AI-агентов под задачи бизнеса. Наша экспертиза охватывает автоматизацию, интеграции с CRM и ERP, а также клиентский сервис. Мы не предлагаем шаблонные решения — каждый агент настраивается индивидуально под процессы клиента. Работаем прозрачно: от заявки до внедрения вы всегда в курсе этапа проекта.
+                    </p>
+                </div>
+                <div class="about__subsection">
+                    <h3 class="about__subtitle about_bl-ef">Преимущества</h3>
+                    <ul class="about__list about__text about_bl-ef">
+                        <li class="about__item">Индивидуальные решения под задачи клиента</li>
+                        <li class="about__item">Прозрачный процесс и сопровождение</li>
+                        <li class="about__item">Экспертная команда</li>
+                        <li class="about__item">Глубокая интеграция в бизнес-процессы</li>
+                    </ul>
+                </div>
+                </article>
+            </div>
+
+
+            <article class="about__block about__block--benefits">
+                <div class="about__section about__first-block white-anim">
+                    <h2 class="about__title h2__title about_bl-ef">Как это поможет мне?</h2>
+                </div>
+                <div class="about__section about__section--info white-anim">
+                    <p class="about__text about__text--last-block about_bl-ef">
+                        Наши AI-агенты берут на себя рутинные и повторяющиеся задачи, освобождая время сотрудников и снижая операционные издержки. Вы получаете инструмент, который работает 24/7, не требует отпуска и не допускает ошибок. Интеграция с CRM, мессенджерами, email и другими системами делает внедрение быстрым и удобным. Кастомная настройка позволяет агенту работать именно под вашу задачу — от обработки заявок до ведения диалогов и генерации отчётов. Это ускоряет процессы, улучшает клиентский сервис и даёт полный контроль над автоматизацией.
+                    </p>
+            </article>
+        </section>
+
+        <div id="pixelWrap3"></div>
+        <section class="about-mobile about-mobile__section" aria-label="О нас">
+            <div class="about-mobile__block">
+                <h2 class="about-mobile__title">Как это<br> поможет <br> мне?</h2>
+            </div>
+
+            <div class="about-mobile__block">
+                <div class="about-mobile__subtitle-block js-toggle">
+                    <h3 class="about-mobile__subtitle">Что мы делаем</h3>
+                    <img src="img/Arrow-mobile.svg" alt="стрелка">
+                </div>
+                <div class="about-mobile__content js-content">
+                <p class="about-mobile__text"> Мы — команда профессионалов, специализирующихся на разработке кастомных AI-агентов под задачи бизнеса. Наша экспертиза охватывает автоматизацию, интеграции с CRM и ERP, а также клиентский сервис. Мы не предлагаем шаблонные решения — каждый агент настраивается индивидуально под процессы клиента. Работаем прозрачно: от заявки до внедрения вы всегда в курсе этапа проекта.</p>
+                </div>
+            </div>
+
+            <div class="about-mobile__block">
+                <h2 class="about-mobile__title">Почему мы?</h2>
+            </div>
+
+            <div class="about-mobile__block">
+                <div class="about-mobile__subtitle-block js-toggle">
+                    <h3 class="about-mobile__subtitle">О нас</h3>
+                    <img src="img/Arrow-mobile.svg" alt="стрелка">
+                </div>
+                <div class="about-mobile__content js-content">
+                <p class="about-mobile__text">Наша команда — эксперты с многолетним опытом в своей области.</p>
+                </div>
+            </div>
+
+            <div class="about-mobile__block">
+                <div class="about-mobile__subtitle-block js-toggle">
+                    <h3 class="about-mobile__subtitle">Преймущества</h3>
+                    <img src="img/Arrow-mobile.svg" alt="стрелка">
+                </div>
+                <div class="about-mobile__content js-content">
+                <p class="about-mobile__text">Наши ИИ-агенты берут на себя рутинные и повторяющиеся задачи, освобождая время сотрудников и снижая операционные издержки. Вы получаете инструмент, который работает 24/7, не требует отпуска и не допускает ошибок. Решения интегрируются в уже существующие процессы — CRM, мессенджеры, email и другие системы, что делает внедрение быстрым и удобным. Благодаря кастомной настройке каждый агент работает под вашу задачу: от обработки заявок до ведения диалогов и формирования отчётов. В результате вы ускоряете процессы, улучшаете клиентский сервис и получаете полный контроль над автоматизацией внутри бизнеса</p>
+                </div>
+            </div>
+        </section>
+        <div class="pixel-wrap" id="pixelWrap"></div>
+        <!-- <div id="background__container-manage"></div> -->
+
+
+        <section class="services">
+            <div class="services__container">
+                <div class="services__header">
+                <span class="services__title">Отрасли, для которых мы предоставляем решения:</span>
+                <span class="services__tag">(7) </span>
+                </div>
+                <div class="services__list">
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">СТРОИТЕЛЬСТВО</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">СТРОИТЕЛЬСТВО</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">СТРОИТЕЛЬСТВО</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">СТРОИТЕЛЬСТВО</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">ПРОИЗВОДСТВО</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ПРОИЗВОДСТВО</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">ПРОИЗВОДСТВО</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ПРОИЗВОДСТВО</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">ОБРАЗОВАНИЕ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ОБРАЗОВАНИЕ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">ОБРАЗОВАНИЕ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ОБРАЗОВАНИЕ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">НЕДВИЖЕМОСТЬ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">НЕДВИЖЕМОСТЬ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">НЕДВИЖЕМОСТЬ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">НЕДВИЖЕМОСТЬ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">ПРОДАЖИ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ПРОДАЖИ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">ПРОДАЖИ</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">ПРОДАЖИ</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">E-COMMERCE</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">E-COMMERCE</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">E-COMMERCE</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">E-COMMERCE</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+
+                    <div class="services__items-block">
+                        <div class="services__item">
+                        <h6 class="services__item-title">HR  AGENT</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">HR  AGENT</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                        <div class="services__item">
+                        <h6 class="services__item-title">HR  AGENT</h6>
+                        <span class="services__item-link">ПОДРОБНОСТИ</span>
+                        </div>
+                        <div class="services__item serv-color-item">
+                        <h6 class="services__item-title">HR  AGENT</h6>
+                        <span class="services__item-link">ПЕРЕЙТИ</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="team">
+            <div class="team__title-wrapper">
+                <div class="team__square"></div>
+                <h2 class="team__title">топ-менеджмент</h2>
+            </div>
+
+            <div class="team__list">
+                <article class="team__member">
+                    <div class="team__photo-block"><img class="team__photo" src="img/person1.png" alt="Кілі Сперрі — генеральный директор"></div>
+                    <h3 class="team__name">Кілі Сперрі</h3>
+                    <p class="team__position">дизайнер</p>
+                </article>
+
+                <article class="team__member">
+                    <div class="team__photo-block"><img class="team__photo" src="img/person2.png" alt="Кілі Сперрі — генеральный директор"></div>
+                    <h3 class="team__name">Кілі Сперрі</h3>
+                    <p class="team__position">директор</p>
+                </article>
+
+                <article class="team__member">
+                    <div class="team__photo-block"><img class="team__photo" src="img/person3.png" alt="Кілі Сперрі — генеральный директор"></div>
+                    <h3 class="team__name">Кілі Сперрі</h3>
+                    <p class="team__position">програмист</p>
+                </article>
+
+                <div class="team__member--block-blur color-1" style="position: relative!important;"></div>
+                <div class="team__member--block-blur color-2" ></div>
+                <div class="team__member--block-blur color-3" ></div>
+                <div class="team__member--block-blur color-4" ></div>
+                <div class="team__member--block-blur team__last-blur color-5"></div>
+            </div>
+        </section>
+
+
+        <!-- <div class="block-img">
+            <img src="img/backgr.webp" alt="Изображение про нейросеть" loading="lazy">
+        </div> -->
+
+        <section class="models-section" aria-label="Список интегрированных AI-моделей">
+            <h2 class="models-section__title">Интегрированные AI-модели</h2>
+
+            <div class="models-grid">
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 1.png" alt="GPT-4 модель обработки языка" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>OpenAI</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 2.png" alt="DALL·E модель генерации изображений" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>xAI</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <figcaption class="models-grid__caption"><span>Groq LLaMA</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 3.png" alt="Codex модель генерации кода" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>AWS Bedrock</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 4.png" alt="CLIP модель сопоставления текста и изображений" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>LLaVA</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 5.png" alt="Text-to-Speech голосовой движок" class="models-grid__image" style="margin-left: 25%;">
+                <figcaption class="models-grid__caption"><span></span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 6.png" alt="Автоматическое распознавание речи" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>Cohere</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 7.png" alt="BERT модель от Google" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>Ollama</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 8.png" alt="Stable Diffusion генерация изображений" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>Gemma</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 9.png" alt="Gemini от Google DeepMind" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>Gemini</span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 10.png" alt="LLaMA модель от Meta AI" class="models-grid__image" style="margin-left: 25%;height: 40px;width:40px;">
+                <figcaption class="models-grid__caption"><span></span></figcaption>
+            </figure>
+
+            <figure class="models-grid__item">
+                <img src="img/icon/icon 11.png" alt="Cohere компактная AI модель" class="models-grid__image">
+                <figcaption class="models-grid__caption"><span>Cohere</span></figcaption>
+            </figure>
+            </div>
+        </section>
+
+
+        <div class="pixel-wrap" id="pixelWrap2"></div>
+        <section class="reviews" aria-label="Отзывы о AXION AI">
+            <h2 class="reviews__title">Мы создали AXION AI, чтобы помочь стартапам и бизнесу работать быстрее</h2>
+            <p class="reviews__text-osn">Наша цель — автоматизировать рутину, усилить команды и открыть новые возможности с помощью ИИ-агентов.</p>
+             <div class="reviews__viewport">
+                <div class="reviews__track">
+                <!-- JS сюда вставит оригинальные  и дублированные отзывы -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+     <footer class="footer">
+      <div class="object-container">
+        <div class="object"><p>Готов к росту!</p></div>
+        <div class="object"><p>Связаться</p></div>
+        <div class="object"><p>Запустить рост</p></div>
+        <!-- <div class="object"><p>Да, я хочу ускорить свой бизнес!</p></div> -->
+        <div class="object"><p>Оставить заявку</p></div>
+        <div class="object"><p>Время действовать</p></div>
+        <div class="object"><p>Начать сейчас</p></div>
+        <div class="object"><p>Перейти</p></div> 
+        <div class="object"><p>Ускорить рост</p></div>
+        <!-- <div class="object"><p>Lenis</p></div>
+        <div class="object"><p>React</p></div>
+        <div class="object"><p>Next.js</p></div>
+        <div class="object"><p>WebGL</p></div>
+        <div class="object"><p>Three.js</p></div>
+        <div class="object"><p>Creative Dev</p></div> -->
+      </div>
+
+      <div class="footer-content">
+            <h4 class="footer__title">Готовы ускориться?</h4>
+                <div class="footer__block-mg">
+                    <div class="footer__block">
+                        <p class="footer__text">
+                        Оставьте заявку, и мы бесплатно рассчитаем, сколько именно часов и денег сэкономит ваш бизнес с цифровым сотрудником. Это ни к чему вас не обязывает.
+                        </p>
+                        
+                        <address class="footer__contacts">
+                            <a href="mailto:axison@gmail.com" class="footer__link ft-t footer__link-email" aria-label="Email AXION AI">
+                            axison@gmail.com
+                            <span class="footer__underline footer__underline--email"></span>
+                            </a>
+                            <br>
+                            <a href="tel:+421233112442" class="footer__link ft-t footer__link-num" aria-label="Позвонить AXION AI">
+                            [+421] 233 112 442
+                            <span class="footer__underline footer__underline--phone"></span>
+                            </a>
+                        </address>
+                    </div>
+
+                    <div class="footer__block footer__block--cta">
+                        <div class="footer__block--license">
+                            <span class="footer__license">Лицензия на образовательную деятельность № Л035-01271-78/02037422 от 26.03.2025<br><br>© 2023—2025 «Black Mesa IT». Все права защищены</span>
+                        </div>
+
+                        <div class="footer__block--social" aria-label="Социальные сети AXION AI">
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Telegram">
+                            <img src="img/telegram.png" alt="Логотип Telegram" class="footer__social-icon">
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Viber">
+                            <img src="img/viber.png" alt="Логотип Viber" class="footer__social-icon">
+                            </a>
+                            <a href="#" class="footer__social-link" aria-label="AXION AI в Instagram">
+                            <img src="img/instagram.png" alt="Логотип Instagram" class="footer__social-icon">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+
+    <div style="height: 10vh"></div>
     </div>
 </div>
-    <script src="js/script.js"></script>
-    <script src="js/scroll.js"></script>
-    <script src="js/audio.js"></script>
-    <script src="js/animation_sek3-desktop.js"></script>
-    <script src="js/animation_sek4-full.js"></script>
-    <script src="js/footer.js"></script>
-    <script src="js/burger.js"></script>
+
+<script src="js/script.js" defer></script>
+<script src="js/services.js" defer></script>
+<script src="js/header.js" defer></script>
+<script src="js/scroll.js" defer></script>
+<script src="js/hero.js" defer></script>
+<script src="js/ai-section.js" defer></script>
+<script src="js/work-step.js" defer></script>
+<script src="js/about__sect.js" defer></script>
+<script src="js/team.js" defer></script>
+<script src="js/footer.js" defer></script>
+<script src="js/reviews.js" defer></script>
+<script src="js/mobile.js" defer></script>
+
+
 </body>
 </html>
