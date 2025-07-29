@@ -29,7 +29,6 @@
     .img-wrapper{height:30vh;}
     .header__nav,.background__container{display: none;}
     .header__logo {height:calc(var(--header__logo-height)*.8);width:calc(var(--header__logo-height)*.8)}
-    .header__container {padding: calc(var(--header__container-padding)*.5) var(--container-padding)}
     .burger__line {width:45px;}
     .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
 }
@@ -84,5 +83,10 @@
     .ai-section__heading-title {font-size:var(--ai-section__heading);}
     .ai-section__title{font-size:var(--ai-section__title);}
     .ai-section__text-group{font-size:var(--ai-section__text-group);}
+    .hero__description{
+        width: 100vw;
+    }
+    .hero__title{font-size: 6.6vw;}
+    .button-request__icon {width: 5vw;}
 
 }

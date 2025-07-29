@@ -110,45 +110,45 @@ if (currentIndex !== -1) {
 
 
 
-const BOX   = document.querySelector('.custom-follow-box'),
-      LINK  = 'тг',
-      MOVE_X = gsap.quickTo(BOX, 'x', { duration: 0.3, ease: 'power2' }),
-      MOVE_Y = gsap.quickTo(BOX, 'y', { duration: 0.3, ease: 'power2' });
+// const BOX   = document.querySelector('.custom-follow-box'),
+//       LINK  = 'тг',
+//       MOVE_X = gsap.quickTo(BOX, 'x', { duration: 0.3, ease: 'power2' }),
+//       MOVE_Y = gsap.quickTo(BOX, 'y', { duration: 0.3, ease: 'power2' });
 
-let active  = false;
+// let active  = false;
 
-// Двигаем бокс по любому движению мыши
-document.addEventListener('mousemove', e => {
-  if (!active) return;
-  document.body.classList.add('hide-cursor');
-  MOVE_X(e.clientX);
-  MOVE_Y(e.clientY);
-});
+// // Двигаем бокс по любому движению мыши
+// document.addEventListener('mousemove', e => {
+//   if (!active) return;
+//   document.body.classList.add('hide-cursor');
+//   MOVE_X(e.clientX);
+//   MOVE_Y(e.clientY);
+// });
 
-// Клики по кнопке
-document.addEventListener('click', e => {
-  if (active && e.target.closest('.cases__button-hover')) {
-    location.href = LINK;
-  }
-});
+// // Клики по кнопке
+// document.addEventListener('click', e => {
+//   if (active && e.target.closest('.cases__button-hover')) {
+//     location.href = LINK;
+//   }
+// });
 
-// Включаем/выключаем кастомный курсор
-document.querySelectorAll('.cases__button-hover').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    active = true;
-    gsap.set(BOX, { display: 'block' });
-    gsap.to(BOX, { autoAlpha: 1, duration: 0.3 });
-  });
-  el.addEventListener('mouseleave', () => {
-    active = false;
-    document.body.classList.remove('hide-cursor');
-    gsap.to(BOX, {
-      autoAlpha: 0,
-      duration: 0.05,
-      onComplete: () => BOX.style.display = 'none'
-    });
-  });
-});
+// // Включаем/выключаем кастомный курсор
+// document.querySelectorAll('.cases__button-hover').forEach(el => {
+//   el.addEventListener('mouseenter', () => {
+//     active = true;
+//     gsap.set(BOX, { display: 'block' });
+//     gsap.to(BOX, { autoAlpha: 1, duration: 0.3 });
+//   });
+//   el.addEventListener('mouseleave', () => {
+//     active = false;
+//     document.body.classList.remove('hide-cursor');
+//     gsap.to(BOX, {
+//       autoAlpha: 0,
+//       duration: 0.05,
+//       onComplete: () => BOX.style.display = 'none'
+//     });
+//   });
+// });
 gsap.fromTo(".footer",{ y: -0.7 * vh },{y: .3 * vh,ease: "none",scrollTrigger: {trigger: ".footer",
     start: () => `bottom+=${0.1 * vh} bottom`,end: () => `+=${1 * vh}`,scrub: true}});
 

@@ -89,20 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   Matter.World.add(engine.world, mouseConstraint);
 
-  let draggedElement = null;
-
-  Matter.Events.on(mouseConstraint, 'startdrag', (event) => {
-    const body = event.body;
-    const target = bodies.find(b => b.body === body);
-    if (target) {
-      draggedElement = target.el;
-    }
-  });
-
   Matter.Events.on(mouseConstraint, 'enddrag', () => {
-    if (draggedElement) {
-      draggedElement = null;
-    }
     window.open('https://тг', '_blank');
   });
 
@@ -114,9 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bodies.forEach(({ body, el, width, height }) => {
       const x = clamp(body.position.x - width / 2, 0, rect.width - width);
       const y = clamp(body.position.y - height / 2, -height * 3, rect.height - height);
-      const isDragging = el === draggedElement;
-      const scale = isDragging ? 0.9 : 1;
-      el.style.transform = `translate(${x}px, ${y}px) rotate(${body.angle}rad) scale(${scale})`;
+      el.style.transform = `translate(${x}px, ${y}px) rotate(${body.angle}rad)`;
     });
     requestAnimationFrame(update);
   }
