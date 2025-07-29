@@ -28,11 +28,13 @@
     :root{--osnova__title-h4:2.5em;}
     .img-wrapper{height:30vh;}
     .header__nav,.background__container{display: none;}
-    .header__logo {height:calc(var(--header__logo-height)*.8);width:calc(var(--header__logo-height)*.8)}
+    .header__logo {height:calc(var(--header__logo-height)*.7);width:calc(var(--header__logo-height)*.7)}
     .burger__line {width:45px;}
     .button-request{right: 50%;transform: translateX(50%);bottom: calc(var(--button-request-text)*3);}
 }
 @media (max-width: 768px) {
+    :root{--nav-text:14px;}
+    .header__right-block div{height: 35px;}
     .about-mobile{display: block;}
     .ai-section__column--visual,.team__member--block-blur{display: none;}
     .ai-section__column{width:50%;}
@@ -62,7 +64,7 @@
     }
     .team__photo-block{height: 70vw;}
     .team__title-wrapper{justify-content: center;padding-left: 0;}
-
+    .large-header{display: none;}
 }
 @media (max-width: 700px) {
 }

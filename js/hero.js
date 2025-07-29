@@ -1,8 +1,6 @@
-if (!isMobile)
+if (!isMobile){
   gsap.fromTo(".promo__video", { scale: .3, rotate: -5, y: "-10vw" }, { scale: 1, y: "100vh", rotate: 0, scrollTrigger: { trigger: ".hero", start: "top top", end: "center top", scrub: true } });
-else
-  gsap.fromTo(".promo__video", { scale: .3, rotate: -3, y: -.3 * vw }, { scale: 1, y: .9 * vh, rotate: 0, scrollTrigger: { trigger: ".hero", start: "top top", end: "center top", scrub: 1 } });
-
+}
 window.addEventListener("load", () => {
 //   const c = document.getElementById('background__container');
 //   for (let i = 0; i < 400; i++) {
@@ -36,6 +34,8 @@ window.addEventListener("scroll", () => {
   gsap.to(["body"], { backgroundColor: top <= 0 ? "#0B0B0E" : "#111111", duration: .5, overwrite: "auto" });
 });
 
+
+if (!isMobile){
 gsap.timeline()
   .to(".block-per-active", {
     height: 0,
@@ -52,6 +52,7 @@ gsap.timeline()
     opacity:1,
     duration:.3,
   });
+
 (function(){
   const canvas     = document.getElementById('demo-canvas'),
         ctx        = canvas.getContext('2d'),
@@ -192,3 +193,4 @@ gsap.to("#large-header", {
     pinSpacing: false
   }
 });
+}
